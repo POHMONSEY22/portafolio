@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Toaster } from "@/components/ui/toaster"
 import ProjectCard from "@/components/project-card"
 import SkillBadge from "@/components/skill-badge"
+import ExperienceItem from "@/components/experience-item"
 import { ThemeToggle } from "@/components/theme-toggle"
 import ContactForm from "@/components/contact-form"
 
@@ -134,6 +135,63 @@ export default function Home() {
                 <SkillBadge name="Música" />
               </CardContent>
             </Card>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="space-y-10">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl font-bold">Experiencia Profesional</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Mi trayectoria profesional en el desarrollo web y diseño de interfaces.
+            </p>
+          </div>
+
+          <div className="relative md:ml-6 mt-10">
+            {/* Timeline line for desktop */}
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
+
+            <ExperienceItem
+              index={0}
+              title="Frontend Developer"
+              company="Creative Digital Agency"
+              period="2023 - Presente"
+              description="Desarrollo de aplicaciones web interactivas y responsivas utilizando tecnologías modernas. Colaboración con equipos de diseño y backend para implementar interfaces de usuario atractivas y funcionales."
+              achievements={[
+                "Rediseño completo del sitio principal de la empresa, mejorando la velocidad de carga en un 40%",
+                "Implementación de sistema de diseño unificado para todos los productos de la compañía",
+                "Desarrollo de componentes reutilizables que redujeron el tiempo de desarrollo en un 30%",
+              ]}
+              technologies={["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]}
+            />
+
+            <ExperienceItem
+              index={1}
+              title="UI/UX Designer"
+              company="Tech Innovations"
+              period="2021 - 2023"
+              description="Diseño de interfaces de usuario centradas en la experiencia del usuario. Creación de prototipos interactivos y colaboración con desarrolladores para asegurar la correcta implementación del diseño."
+              achievements={[
+                "Rediseño de la aplicación principal que aumentó la retención de usuarios en un 25%",
+                "Creación de un sistema de componentes en Figma que mejoró la eficiencia del equipo",
+                "Implementación de pruebas de usabilidad que identificaron y resolvieron problemas clave",
+              ]}
+              technologies={["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research"]}
+            />
+
+            <ExperienceItem
+              index={2}
+              title="Desarrollador Web Freelance"
+              company="Proyectos Independientes"
+              period="2019 - 2021"
+              description="Desarrollo de sitios web y aplicaciones para diversos clientes, desde pequeñas empresas hasta artistas y músicos. Gestión completa de proyectos desde el concepto hasta la implementación."
+              achievements={[
+                "Desarrollo de más de 15 sitios web para clientes de diversos sectores",
+                "Creación de plataforma para artistas musicales con funcionalidades de streaming",
+                "Implementación de soluciones e-commerce para pequeños negocios",
+              ]}
+              technologies={["HTML", "CSS", "JavaScript", "WordPress", "PHP", "MySQL"]}
+            />
           </div>
         </section>
 
