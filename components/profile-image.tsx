@@ -20,7 +20,7 @@ export default function ProfileImage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.7 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/50 blur-xl"
+        className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/80 to-primary/40 blur-xl"
       ></motion.div>
       <div className="h-64 w-64 rounded-full border-4 border-background relative overflow-hidden">
         <div className="relative w-full h-full">

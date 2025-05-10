@@ -27,15 +27,15 @@ export default function ParallaxBackground() {
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       <motion.div
         style={{ y: y1, opacity: opacity1 }}
-        className="absolute top-10 left-[10%] w-64 h-64 rounded-full bg-primary/20 blur-3xl"
+        className="absolute top-10 left-[10%] w-64 h-64 rounded-full bg-primary/5 blur-3xl"
       />
       <motion.div
         style={{ y: y2, opacity: opacity2 }}
-        className="absolute top-[30%] right-[5%] w-96 h-96 rounded-full bg-primary/10 blur-3xl"
+        className="absolute top-[30%] right-[5%] w-96 h-96 rounded-full bg-primary/3 blur-3xl"
       />
       <motion.div
         style={{ y: y3, opacity: opacity3 }}
-        className="absolute top-[60%] left-[20%] w-80 h-80 rounded-full bg-primary/15 blur-3xl"
+        className="absolute top-[60%] left-[20%] w-80 h-80 rounded-full bg-primary/4 blur-3xl"
       />
     </div>
   )

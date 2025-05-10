@@ -99,15 +99,17 @@ export default function Home() {
               className="flex gap-4"
             >
               <Link href="#projects">
-                <Button size="lg">Ver proyectos</Button>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+                  Ver proyectos
+                </Button>
               </Link>
               <Link href="#workflow">
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
                   Mi proceso
                 </Button>
               </Link>
               <Link href="#contact">
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
                   Contacto
                 </Button>
               </Link>
