@@ -8,8 +8,8 @@ import ParallaxBackground from "@/components/parallax-background"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Portfolio - Frontend Developer",
-  description: "Portfolio personal de desarrollo frontend",
+  title: "Juan Pablo Gallo Arboleda - Frontend Developer",
+  description: "Portfolio personal de Juan Pablo Gallo Arboleda, desarrollador frontend",
     generator: 'v0.dev'
 }
 
@@ -20,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <ParallaxBackground />

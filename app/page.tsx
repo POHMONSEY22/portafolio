@@ -35,7 +35,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl font-bold"
           >
-            POH<span className="text-primary">MONSEY</span>
+            JUAN<span className="text-primary">PABLO</span>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -56,7 +56,7 @@ export default function Home() {
                 <span className="sr-only">Contact</span>
               </Button>
             </Link>
-            <Link href="https://linkedin.com" target="_blank">
+            <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
               <Button variant="ghost" size="icon">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
@@ -81,7 +81,7 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.7 }}
               className="text-4xl md:text-6xl font-bold tracking-tight"
             >
-              Frontend Developer <span className="text-primary">& UI Designer</span>
+              Juan Pablo Gallo <span className="text-primary">Arboleda</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -323,10 +323,10 @@ export default function Home() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">POHMONSEY22</p>
+                  <p className="text-muted-foreground">Juan Pablo Gallo</p>
                 </CardContent>
                 <CardFooter>
-                  <Link href="https://linkedin.com/in/pohmonsey22" target="_blank">
+                  <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
                     <Button variant="outline" size="sm">
                       Conectar
                     </Button>
@@ -348,7 +348,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
               <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} POHMONSEY22. Todos los derechos reservados.
+                © {new Date().getFullYear()} Juan Pablo Gallo Arboleda. Todos los derechos reservados.
               </p>
             </div>
             <div className="flex gap-4">
@@ -365,7 +365,7 @@ export default function Home() {
                   <span className="sr-only">Contact</span>
                 </Button>
               </Link>
-              <Link href="https://linkedin.com" target="_blank">
+              <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
                 <Button variant="ghost" size="icon">
                   <Linkedin className="h-4 w-4" />
                   <span className="sr-only">LinkedIn</span>
