@@ -6,16 +6,15 @@ import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Toaster } from "@/components/ui/toaster"
 import ProjectCard from "@/components/project-card"
 import SkillBadge from "@/components/skill-badge"
-import ExperienceItem from "@/components/experience-item"
 import { ThemeToggle } from "@/components/theme-toggle"
 import ContactForm from "@/components/contact-form"
 import AnimatedSection from "@/components/animated-section"
 import AnimatedItem from "@/components/animated-item"
 import StaggeredChildren from "@/components/staggered-children"
+import ProfileImage from "@/components/profile-image"
 
 export default function Home() {
   return (
@@ -108,28 +107,7 @@ export default function Home() {
               </Link>
             </motion.div>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.3,
-              type: "spring",
-              stiffness: 100,
-            }}
-            className="relative"
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.7 }}
-              transition={{ duration: 1, delay: 1 }}
-              className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/50 blur-xl"
-            ></motion.div>
-            <Avatar className="h-64 w-64 border-4 border-background relative">
-              <AvatarImage src="/profile.png" alt="Profile" />
-              <AvatarFallback className="text-5xl">PM</AvatarFallback>
-            </Avatar>
-          </motion.div>
+          <ProfileImage />
         </section>
 
         {/* Scroll indicator */}
@@ -156,20 +134,20 @@ export default function Home() {
             </p>
           </div>
 
-          <StaggeredChildren className="grid grid-cols-2 md:grid-cols-4 gap-4" initialDelay={0.2}>
+          <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 gap-6" initialDelay={0.2}>
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg">Frontend</CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-wrap gap-2">
-                <StaggeredChildren staggerDelay={0.05}>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
                   <SkillBadge name="HTML" />
                   <SkillBadge name="CSS" />
                   <SkillBadge name="JavaScript" />
                   <SkillBadge name="React" />
                   <SkillBadge name="Next.js" />
                   <SkillBadge name="Tailwind" />
-                </StaggeredChildren>
+                </div>
               </CardContent>
             </Card>
 
@@ -177,13 +155,13 @@ export default function Home() {
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg">Backend</CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-wrap gap-2">
-                <StaggeredChildren staggerDelay={0.05}>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
                   <SkillBadge name="Node.js" />
                   <SkillBadge name="Django" />
                   <SkillBadge name="MongoDB" />
                   <SkillBadge name="Firebase" />
-                </StaggeredChildren>
+                </div>
               </CardContent>
             </Card>
 
@@ -191,13 +169,13 @@ export default function Home() {
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg">Herramientas</CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-wrap gap-2">
-                <StaggeredChildren staggerDelay={0.05}>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
                   <SkillBadge name="Git" />
                   <SkillBadge name="GitHub" />
                   <SkillBadge name="VS Code" />
                   <SkillBadge name="Figma" />
-                </StaggeredChildren>
+                </div>
               </CardContent>
             </Card>
 
@@ -205,73 +183,16 @@ export default function Home() {
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg">Otros</CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-wrap gap-2">
-                <StaggeredChildren staggerDelay={0.05}>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
                   <SkillBadge name="Responsive" />
                   <SkillBadge name="Arte Digital" />
                   <SkillBadge name="UI/UX" />
                   <SkillBadge name="Música" />
-                </StaggeredChildren>
+                </div>
               </CardContent>
             </Card>
           </StaggeredChildren>
-        </AnimatedSection>
-
-        {/* Experience Section */}
-        <AnimatedSection id="experience" className="space-y-10">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold">Experiencia Profesional</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Mi trayectoria profesional en el desarrollo web y diseño de interfaces.
-            </p>
-          </div>
-
-          <div className="relative md:ml-6 mt-10">
-            {/* Timeline line for desktop */}
-            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
-
-            <ExperienceItem
-              index={0}
-              title="Frontend Developer"
-              company="Creative Digital Agency"
-              period="2023 - Presente"
-              description="Desarrollo de aplicaciones web interactivas y responsivas utilizando tecnologías modernas. Colaboración con equipos de diseño y backend para implementar interfaces de usuario atractivas y funcionales."
-              achievements={[
-                "Rediseño completo del sitio principal de la empresa, mejorando la velocidad de carga en un 40%",
-                "Implementación de sistema de diseño unificado para todos los productos de la compañía",
-                "Desarrollo de componentes reutilizables que redujeron el tiempo de desarrollo en un 30%",
-              ]}
-              technologies={["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]}
-            />
-
-            <ExperienceItem
-              index={1}
-              title="UI/UX Designer"
-              company="Tech Innovations"
-              period="2021 - 2023"
-              description="Diseño de interfaces de usuario centradas en la experiencia del usuario. Creación de prototipos interactivos y colaboración con desarrolladores para asegurar la correcta implementación del diseño."
-              achievements={[
-                "Rediseño de la aplicación principal que aumentó la retención de usuarios en un 25%",
-                "Creación de un sistema de componentes en Figma que mejoró la eficiencia del equipo",
-                "Implementación de pruebas de usabilidad que identificaron y resolvieron problemas clave",
-              ]}
-              technologies={["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research"]}
-            />
-
-            <ExperienceItem
-              index={2}
-              title="Desarrollador Web Freelance"
-              company="Proyectos Independientes"
-              period="2019 - 2021"
-              description="Desarrollo de sitios web y aplicaciones para diversos clientes, desde pequeñas empresas hasta artistas y músicos. Gestión completa de proyectos desde el concepto hasta la implementación."
-              achievements={[
-                "Desarrollo de más de 15 sitios web para clientes de diversos sectores",
-                "Creación de plataforma para artistas musicales con funcionalidades de streaming",
-                "Implementación de soluciones e-commerce para pequeños negocios",
-              ]}
-              technologies={["HTML", "CSS", "JavaScript", "WordPress", "PHP", "MySQL"]}
-            />
-          </div>
         </AnimatedSection>
 
         {/* Projects Section */}
@@ -287,7 +208,6 @@ export default function Home() {
             <ProjectCard
               title="MF DOOM Tribute"
               description="Página tributo al legendario rapero MF DOOM, con su biografía, discografía y legado musical."
-              image="/placeholder.svg?height=300&width=500&text=MF+DOOM"
               demoUrl="https://mf-doom-theta.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/mf-doom"
               technologies={["React", "Next.js", "CSS", "Responsive Design"]}
@@ -296,7 +216,6 @@ export default function Home() {
             <ProjectCard
               title="Canserbero"
               description="Sitio web dedicado al rapero venezolano Canserbero, mostrando su vida, música e impacto cultural."
-              image="/placeholder.svg?height=300&width=500&text=Canserbero"
               demoUrl="https://canserbero.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/canserbero"
               technologies={["JavaScript", "HTML5", "CSS3", "Web Audio API"]}
@@ -305,7 +224,6 @@ export default function Home() {
             <ProjectCard
               title="Tupac Amaru"
               description="Proyecto dedicado a Tupac Shakur, explorando su música, poesía y legado en la cultura hip-hop."
-              image="/placeholder.svg?height=300&width=500&text=Tupac+Amaru"
               demoUrl="https://tupac-amaru.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/tupac-amaru"
               technologies={["React", "Tailwind CSS", "Framer Motion", "Next.js"]}
@@ -314,7 +232,6 @@ export default function Home() {
             <ProjectCard
               title="Clau & Yuli"
               description="Sitio web personal o proyecto colaborativo con diseño moderno y experiencia de usuario intuitiva."
-              image="/placeholder.svg?height=300&width=500&text=Clau+%26+Yuli"
               demoUrl="https://clauyuli.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/clauyuli"
               technologies={["React", "CSS Modules", "Responsive Design", "JavaScript"]}
@@ -323,7 +240,6 @@ export default function Home() {
             <ProjectCard
               title="Kobe Bryant Tribute"
               description="Homenaje a la leyenda del baloncesto Kobe Bryant, con estadísticas, logros y momentos memorables."
-              image="/placeholder.svg?height=300&width=500&text=Kobe+Bryant"
               demoUrl="https://kobe-bryant-717.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/kobe-bryant"
               technologies={["Next.js", "Chart.js", "Tailwind CSS", "JavaScript"]}
@@ -332,7 +248,6 @@ export default function Home() {
             <ProjectCard
               title="Portfolio Personal"
               description="Sitio web personal que muestra mis proyectos, habilidades y experiencia como desarrollador frontend."
-              image="/placeholder.svg?height=300&width=500&text=Portfolio"
               demoUrl="https://pohmonsey22.github.io/portfolio/"
               repoUrl="https://github.com/POHMONSEY22/portfolio"
               technologies={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}

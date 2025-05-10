@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
@@ -9,11 +8,12 @@ import { ExternalLink, Github } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import BrowserPreview from "./browser-preview"
 
 interface ProjectCardProps {
   title: string
   description: string
-  image: string
+  image?: string
   demoUrl: string
   repoUrl: string
   technologies: string[]
@@ -34,20 +34,8 @@ export default function ProjectCard({ title, description, image, demoUrl, repoUr
       onMouseLeave={() => setIsHovered(false)}
     >
       <Card className="overflow-hidden h-full flex flex-col bg-background/50 backdrop-blur-sm border border-primary/10 dark:bg-gray-900/50">
-        <div className="relative h-48 overflow-hidden">
-          <Image
-            src={image || "/placeholder.svg"}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-500"
-            style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
-          />
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 0.2 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-primary"
-          />
+        <div className="relative overflow-hidden">
+          <BrowserPreview url={demoUrl} title={title} />
         </div>
         <CardHeader>
           <CardTitle>{title}</CardTitle>

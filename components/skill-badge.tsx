@@ -12,7 +12,7 @@ export default function SkillBadge({ name }: SkillBadgeProps) {
     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
       <Badge
         variant="outline"
-        className="bg-primary/5 hover:bg-primary/10 dark:bg-primary/20 dark:hover:bg-primary/30 transition-colors"
+        className="bg-primary/5 hover:bg-primary/10 dark:bg-primary/20 dark:hover:bg-primary/30 transition-colors whitespace-nowrap"
       >
         {name}
       </Badge>
