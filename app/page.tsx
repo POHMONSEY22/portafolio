@@ -21,10 +21,12 @@ import SmoothScrollLink from "@/components/smooth-scroll-link"
 import TextReveal from "@/components/text-reveal"
 import FadeInOnScroll from "@/components/fade-in-on-scroll"
 import MouseFollowEffect from "@/components/mouse-follow-effect"
+import SchemaOrg from "@/components/seo/schema-org"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
+      <SchemaOrg />
       <Toaster />
       {/* Header */}
       <header className="container mx-auto py-6">
