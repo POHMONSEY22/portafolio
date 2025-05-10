@@ -15,6 +15,7 @@ import AnimatedSection from "@/components/animated-section"
 import AnimatedItem from "@/components/animated-item"
 import StaggeredChildren from "@/components/staggered-children"
 import ProfileImage from "@/components/profile-image"
+import WorkflowSection from "@/components/workflow-section"
 
 export default function Home() {
   return (
@@ -99,6 +100,11 @@ export default function Home() {
             >
               <Link href="#projects">
                 <Button size="lg">Ver proyectos</Button>
+              </Link>
+              <Link href="#workflow">
+                <Button variant="outline" size="lg">
+                  Mi proceso
+                </Button>
               </Link>
               <Link href="#contact">
                 <Button variant="outline" size="lg">
@@ -253,6 +259,11 @@ export default function Home() {
               technologies={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
             />
           </StaggeredChildren>
+        </AnimatedSection>
+
+        {/* Workflow Section */}
+        <AnimatedSection id="workflow" className="space-y-10">
+          <WorkflowSection />
         </AnimatedSection>
 
         {/* Contact Section */}
