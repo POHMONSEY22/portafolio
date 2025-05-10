@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,6 +13,9 @@ import SkillBadge from "@/components/skill-badge"
 import ExperienceItem from "@/components/experience-item"
 import { ThemeToggle } from "@/components/theme-toggle"
 import ContactForm from "@/components/contact-form"
+import AnimatedSection from "@/components/animated-section"
+import AnimatedItem from "@/components/animated-item"
+import StaggeredChildren from "@/components/staggered-children"
 
 export default function Home() {
   return (
@@ -17,11 +23,26 @@ export default function Home() {
       <Toaster />
       {/* Header */}
       <header className="container mx-auto py-6">
-        <nav className="flex justify-between items-center">
-          <div className="text-xl font-bold">
+        <motion.nav
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-between items-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl font-bold"
+          >
             POH<span className="text-primary">MONSEY</span>
-          </div>
-          <div className="flex gap-4 items-center">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex gap-4 items-center"
+          >
             <ThemeToggle />
             <Link href="https://github.com/POHMONSEY22" target="_blank">
               <Button variant="ghost" size="icon">
@@ -41,22 +62,42 @@ export default function Home() {
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
-          </div>
-        </nav>
+          </motion.div>
+        </motion.nav>
       </header>
 
       <main className="container mx-auto px-4 py-10 space-y-24">
         {/* Hero Section */}
         <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 py-10">
-          <div className="space-y-6 max-w-2xl">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="space-y-6 max-w-2xl"
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="text-4xl md:text-6xl font-bold tracking-tight"
+            >
               Frontend Developer <span className="text-primary">& UI Designer</span>
-            </h1>
-            <p className="text-xl text-muted-foreground">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.9 }}
+              className="text-xl text-muted-foreground"
+            >
               Grafitero digital, programador con estilo y amante del basket. Fusiono arte, música para que todo quede
               con un toque personal y único.
-            </p>
-            <div className="flex gap-4">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.1 }}
+              className="flex gap-4"
+            >
               <Link href="#projects">
                 <Button size="lg">Ver proyectos</Button>
               </Link>
@@ -65,19 +106,49 @@ export default function Home() {
                   Contacto
                 </Button>
               </Link>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/50 blur-xl opacity-70"></div>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.3,
+              type: "spring",
+              stiffness: 100,
+            }}
+            className="relative"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.7 }}
+              transition={{ duration: 1, delay: 1 }}
+              className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/50 blur-xl"
+            ></motion.div>
             <Avatar className="h-64 w-64 border-4 border-background relative">
               <AvatarImage src="/profile.png" alt="Profile" />
               <AvatarFallback className="text-5xl">PM</AvatarFallback>
             </Avatar>
-          </div>
+          </motion.div>
         </section>
 
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1,
+            delay: 1.5,
+            repeat: Number.POSITIVE_INFINITY,
+            repeatType: "reverse",
+          }}
+          className="flex justify-center -mt-10"
+        >
+          <ArrowDown className="h-8 w-8 text-primary/70" />
+        </motion.div>
+
         {/* Skills Section */}
-        <section id="skills" className="space-y-10">
+        <AnimatedSection id="skills" className="space-y-10">
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold">Tecnologías</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -85,18 +156,20 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <StaggeredChildren className="grid grid-cols-2 md:grid-cols-4 gap-4" initialDelay={0.2}>
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg">Frontend</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
-                <SkillBadge name="HTML" />
-                <SkillBadge name="CSS" />
-                <SkillBadge name="JavaScript" />
-                <SkillBadge name="React" />
-                <SkillBadge name="Next.js" />
-                <SkillBadge name="Tailwind" />
+                <StaggeredChildren staggerDelay={0.05}>
+                  <SkillBadge name="HTML" />
+                  <SkillBadge name="CSS" />
+                  <SkillBadge name="JavaScript" />
+                  <SkillBadge name="React" />
+                  <SkillBadge name="Next.js" />
+                  <SkillBadge name="Tailwind" />
+                </StaggeredChildren>
               </CardContent>
             </Card>
 
@@ -105,10 +178,12 @@ export default function Home() {
                 <CardTitle className="text-lg">Backend</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
-                <SkillBadge name="Node.js" />
-                <SkillBadge name="Django" />
-                <SkillBadge name="MongoDB" />
-                <SkillBadge name="Firebase" />
+                <StaggeredChildren staggerDelay={0.05}>
+                  <SkillBadge name="Node.js" />
+                  <SkillBadge name="Django" />
+                  <SkillBadge name="MongoDB" />
+                  <SkillBadge name="Firebase" />
+                </StaggeredChildren>
               </CardContent>
             </Card>
 
@@ -117,10 +192,12 @@ export default function Home() {
                 <CardTitle className="text-lg">Herramientas</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
-                <SkillBadge name="Git" />
-                <SkillBadge name="GitHub" />
-                <SkillBadge name="VS Code" />
-                <SkillBadge name="Figma" />
+                <StaggeredChildren staggerDelay={0.05}>
+                  <SkillBadge name="Git" />
+                  <SkillBadge name="GitHub" />
+                  <SkillBadge name="VS Code" />
+                  <SkillBadge name="Figma" />
+                </StaggeredChildren>
               </CardContent>
             </Card>
 
@@ -129,17 +206,19 @@ export default function Home() {
                 <CardTitle className="text-lg">Otros</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-wrap gap-2">
-                <SkillBadge name="Responsive" />
-                <SkillBadge name="Arte Digital" />
-                <SkillBadge name="UI/UX" />
-                <SkillBadge name="Música" />
+                <StaggeredChildren staggerDelay={0.05}>
+                  <SkillBadge name="Responsive" />
+                  <SkillBadge name="Arte Digital" />
+                  <SkillBadge name="UI/UX" />
+                  <SkillBadge name="Música" />
+                </StaggeredChildren>
               </CardContent>
             </Card>
-          </div>
-        </section>
+          </StaggeredChildren>
+        </AnimatedSection>
 
         {/* Experience Section */}
-        <section id="experience" className="space-y-10">
+        <AnimatedSection id="experience" className="space-y-10">
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold">Experiencia Profesional</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -193,10 +272,10 @@ export default function Home() {
               technologies={["HTML", "CSS", "JavaScript", "WordPress", "PHP", "MySQL"]}
             />
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Projects Section */}
-        <section id="projects" className="space-y-10">
+        <AnimatedSection id="projects" className="space-y-10">
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold">Proyectos</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -204,7 +283,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" initialDelay={0.2}>
             <ProjectCard
               title="MF DOOM Tribute"
               description="Página tributo al legendario rapero MF DOOM, con su biografía, discografía y legado musical."
@@ -258,11 +337,11 @@ export default function Home() {
               repoUrl="https://github.com/POHMONSEY22/portfolio"
               technologies={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
             />
-          </div>
-        </section>
+          </StaggeredChildren>
+        </AnimatedSection>
 
         {/* Contact Section */}
-        <section id="contact" className="space-y-10 pb-20">
+        <AnimatedSection id="contact" className="space-y-10 pb-20">
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold">Contacto</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -271,7 +350,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="space-y-6">
+            <StaggeredChildren className="space-y-6" initialDelay={0.3}>
               <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center gap-2">
@@ -328,11 +407,13 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-            </div>
+            </StaggeredChildren>
 
-            <ContactForm />
+            <AnimatedItem delay={0.5}>
+              <ContactForm />
+            </AnimatedItem>
           </div>
-        </section>
+        </AnimatedSection>
       </main>
 
       {/* Footer */}

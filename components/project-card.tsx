@@ -24,8 +24,11 @@ export default function ProjectCard({ title, description, image, demoUrl, repoUr
 
   return (
     <motion.div
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
+      whileHover={{ y: -10, transition: { duration: 0.3 } }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true, margin: "-50px" }}
       className="h-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -39,19 +42,39 @@ export default function ProjectCard({ title, description, image, demoUrl, repoUr
             className="object-cover transition-transform duration-500"
             style={{ transform: isHovered ? "scale(1.05)" : "scale(1)" }}
           />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 0.2 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 bg-primary"
+          />
         </div>
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
-          <div className="flex flex-wrap gap-2 mt-2">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ staggerChildren: 0.1, delayChildren: 0.2 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap gap-2 mt-2"
+          >
             {technologies.map((tech, index) => (
-              <Badge key={index} variant="secondary" className="bg-primary/10">
-                {tech}
-              </Badge>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                viewport={{ once: true }}
+              >
+                <Badge variant="secondary" className="bg-primary/10">
+                  {tech}
+                </Badge>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </CardContent>
         <CardFooter className="flex justify-between gap-2">
           <Link href={demoUrl} target="_blank" className="flex-1">
