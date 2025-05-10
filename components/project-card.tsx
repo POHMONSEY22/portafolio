@@ -24,7 +24,10 @@ export default function ProjectCard({ title, description, image, demoUrl, repoUr
 
   return (
     <motion.div
-      whileHover={{ y: -10, transition: { duration: 0.3 } }}
+      whileHover={{
+        y: -10,
+        transition: { duration: 0.3 },
+      }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -33,9 +36,11 @@ export default function ProjectCard({ title, description, image, demoUrl, repoUr
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Card className="overflow-hidden h-full flex flex-col bg-background/50 backdrop-blur-sm border border-primary/10 dark:bg-gray-900/50">
+      <Card className="overflow-hidden h-full flex flex-col bg-background/50 backdrop-blur-sm border border-primary/10 dark:bg-gray-900/50 transition-all duration-300 hover:shadow-xl hover:shadow-black/5">
         <div className="relative overflow-hidden">
-          <BrowserPreview url={demoUrl} title={title} />
+          <motion.div animate={isHovered ? { scale: 1.05 } : { scale: 1 }} transition={{ duration: 0.5 }}>
+            <BrowserPreview url={demoUrl} title={title} />
+          </motion.div>
         </div>
         <CardHeader>
           <CardTitle>{title}</CardTitle>
@@ -56,8 +61,9 @@ export default function ProjectCard({ title, description, image, demoUrl, repoUr
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.1, rotate: [-1, 1, -1, 0] }}
               >
-                <Badge variant="secondary" className="bg-primary/10">
+                <Badge variant="secondary" className="bg-primary/10 transition-all duration-300 hover:bg-primary/20">
                   {tech}
                 </Badge>
               </motion.div>
@@ -66,16 +72,20 @@ export default function ProjectCard({ title, description, image, demoUrl, repoUr
         </CardContent>
         <CardFooter className="flex justify-between gap-2">
           <Link href={demoUrl} target="_blank" className="flex-1">
-            <Button variant="default" className="w-full">
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Demo
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-white">
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Demo
+              </Button>
+            </motion.div>
           </Link>
           <Link href={repoUrl} target="_blank" className="flex-1">
-            <Button variant="outline" className="w-full">
-              <Github className="h-4 w-4 mr-2" />
-              Código
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button variant="outline" className="w-full border-primary/20 hover:border-primary/50">
+                <Github className="h-4 w-4 mr-2" />
+                Código
+              </Button>
+            </motion.div>
           </Link>
         </CardFooter>
       </Card>

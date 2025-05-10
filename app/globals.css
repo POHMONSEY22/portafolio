@@ -72,10 +72,69 @@
   }
   body {
     @apply bg-background text-foreground;
+    cursor: none;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
   }
 }
 
 /* Transiciones suaves para cambios de tema */
 * {
   transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Estilos para el efecto de perspectiva */
+.perspective-500 {
+  perspective: 500px;
+}
+
+/* Estilos para el efecto de texto revelado */
+.text-reveal-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-reveal-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transform: translateX(-100%);
+}
+
+/* Estilos para los enlaces con efecto hover */
+a,
+button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after,
+button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+a:hover::after,
+button:hover::after {
+  width: 100%;
+}
+
+/* Excluir algunos elementos del efecto de subrayado */
+.no-underline::after,
+button.no-underline::after,
+[class*="Button"]::after {
+  display: none;
 }

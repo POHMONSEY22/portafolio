@@ -16,6 +16,11 @@ import AnimatedItem from "@/components/animated-item"
 import StaggeredChildren from "@/components/staggered-children"
 import ProfileImage from "@/components/profile-image"
 import WorkflowSection from "@/components/workflow-section"
+import AnimatedText from "@/components/animated-text"
+import SmoothScrollLink from "@/components/smooth-scroll-link"
+import TextReveal from "@/components/text-reveal"
+import FadeInOnScroll from "@/components/fade-in-on-scroll"
+import MouseFollowEffect from "@/components/mouse-follow-effect"
 
 export default function Home() {
   return (
@@ -75,14 +80,23 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="space-y-6 max-w-2xl"
           >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7 }}
-              className="text-4xl md:text-6xl font-bold tracking-tight"
-            >
-              Juan Pablo Gallo <span className="text-primary">Arboleda</span>
-            </motion.h1>
+            <TextReveal>
+              <AnimatedText
+                text="Juan Pablo Gallo Arboleda"
+                el="h1"
+                className="text-4xl md:text-6xl font-bold tracking-tight"
+                animation={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.1,
+                    },
+                  },
+                }}
+              />
+            </TextReveal>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -98,24 +112,32 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 1.1 }}
               className="flex gap-4"
             >
-              <Link href="#projects">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
-                  Ver proyectos
-                </Button>
-              </Link>
-              <Link href="#workflow">
-                <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
-                  Mi proceso
-                </Button>
-              </Link>
-              <Link href="#contact">
-                <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
-                  Contacto
-                </Button>
-              </Link>
+              <SmoothScrollLink href="#projects">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+                    Ver proyectos
+                  </Button>
+                </motion.div>
+              </SmoothScrollLink>
+              <SmoothScrollLink href="#workflow">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
+                    Mi proceso
+                  </Button>
+                </motion.div>
+              </SmoothScrollLink>
+              <SmoothScrollLink href="#contact">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
+                    Contacto
+                  </Button>
+                </motion.div>
+              </SmoothScrollLink>
             </motion.div>
           </motion.div>
-          <ProfileImage />
+          <MouseFollowEffect intensity={0.05}>
+            <ProfileImage />
+          </MouseFollowEffect>
         </section>
 
         {/* Scroll indicator */}
@@ -136,10 +158,12 @@ export default function Home() {
         {/* Skills Section */}
         <AnimatedSection id="skills" className="space-y-10">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold">Tecnologías</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
-            </p>
+            <FadeInOnScroll>
+              <h2 className="text-3xl font-bold">Tecnologías</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
+              </p>
+            </FadeInOnScroll>
           </div>
 
           <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 gap-6" initialDelay={0.2}>
@@ -206,10 +230,12 @@ export default function Home() {
         {/* Projects Section */}
         <AnimatedSection id="projects" className="space-y-10">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold">Proyectos</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Una selección de mis proyectos más recientes con sus respectivos enlaces.
-            </p>
+            <FadeInOnScroll>
+              <h2 className="text-3xl font-bold">Proyectos</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Una selección de mis proyectos más recientes con sus respectivos enlaces.
+              </p>
+            </FadeInOnScroll>
           </div>
 
           <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" initialDelay={0.2}>
@@ -271,10 +297,12 @@ export default function Home() {
         {/* Contact Section */}
         <AnimatedSection id="contact" className="space-y-10 pb-20">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold">Contacto</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              ¿Interesado en trabajar juntos? Contáctame a través de cualquiera de estos medios.
-            </p>
+            <FadeInOnScroll>
+              <h2 className="text-3xl font-bold">Contacto</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                ¿Interesado en trabajar juntos? Contáctame a través de cualquiera de estos medios.
+              </p>
+            </FadeInOnScroll>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -291,9 +319,11 @@ export default function Home() {
                 </CardContent>
                 <CardFooter>
                   <Link href="mailto:juanarboledag610@gmail.com">
-                    <Button variant="outline" size="sm">
-                      Enviar email
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button variant="outline" size="sm">
+                        Enviar email
+                      </Button>
+                    </motion.div>
                   </Link>
                 </CardFooter>
               </Card>
@@ -310,9 +340,11 @@ export default function Home() {
                 </CardContent>
                 <CardFooter>
                   <Link href="https://github.com/POHMONSEY22" target="_blank">
-                    <Button variant="outline" size="sm">
-                      Ver perfil
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button variant="outline" size="sm">
+                        Ver perfil
+                      </Button>
+                    </motion.div>
                   </Link>
                 </CardFooter>
               </Card>
@@ -329,9 +361,11 @@ export default function Home() {
                 </CardContent>
                 <CardFooter>
                   <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
-                    <Button variant="outline" size="sm">
-                      Conectar
-                    </Button>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button variant="outline" size="sm">
+                        Conectar
+                      </Button>
+                    </motion.div>
                   </Link>
                 </CardFooter>
               </Card>
