@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Settings, ChevronDown, ChevronUp } from "lucide-react"
+import { Settings } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Slider } from "@/components/ui/slider"
@@ -39,12 +39,11 @@ export default function ParticlesControls({ onSettingsChange, defaultSettings }:
         <CollapsibleTrigger asChild>
           <Button
             variant="outline"
-            size="sm"
-            className="flex items-center gap-2 bg-background/80 backdrop-blur-sm border border-primary/20"
+            size="icon"
+            className="rounded-full bg-background/80 backdrop-blur-sm border border-primary/20 h-10 w-10 shadow-md hover:shadow-lg transition-all"
           >
             <Settings className="h-4 w-4" />
-            Ajustes de partículas
-            {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronUp className="h-4 w-4" />}
+            <span className="sr-only">Ajustes de partículas</span>
           </Button>
         </CollapsibleTrigger>
         <CollapsibleContent className="mt-2 p-4 bg-background/90 backdrop-blur-sm border border-primary/20 rounded-lg shadow-lg">
