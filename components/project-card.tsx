@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import BrowserPreview from "./browser-preview"
+import MagneticButton from "./magnetic-button"
 
 interface ProjectCardProps {
   title: string
@@ -72,20 +73,20 @@ export default function ProjectCard({ title, description, image, demoUrl, repoUr
         </CardContent>
         <CardFooter className="flex justify-between gap-2">
           <Link href={demoUrl} target="_blank" className="flex-1">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <MagneticButton strength={20} radius={100} className="w-full">
               <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-white">
                 <ExternalLink className="h-4 w-4 mr-2" />
                 Demo
               </Button>
-            </motion.div>
+            </MagneticButton>
           </Link>
           <Link href={repoUrl} target="_blank" className="flex-1">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <MagneticButton strength={20} radius={100} className="w-full">
               <Button variant="outline" className="w-full border-primary/20 hover:border-primary/50">
                 <Github className="h-4 w-4 mr-2" />
                 Código
               </Button>
-            </motion.div>
+            </MagneticButton>
           </Link>
         </CardFooter>
       </Card>

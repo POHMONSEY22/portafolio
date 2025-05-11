@@ -31,11 +31,20 @@ export default function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      // Simulamos el envío del formulario
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Enviar los datos a nuestra API
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-      // En un entorno real, aquí enviarías los datos a un endpoint
-      console.log("Formulario enviado:", formData)
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Error al enviar el mensaje")
+      }
 
       toast({
         title: "Mensaje enviado",
@@ -51,9 +60,11 @@ export default function ContactForm() {
         message: "",
       })
     } catch (error) {
+      console.error("Error:", error)
       toast({
         title: "Error al enviar",
-        description: "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.",
+        description:
+          error instanceof Error ? error.message : "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.",
         variant: "destructive",
         duration: 5000,
       })

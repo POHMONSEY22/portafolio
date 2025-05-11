@@ -3,8 +3,9 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import ParallaxBackground from "@/components/parallax-background"
 import CustomCursor from "@/components/custom-cursor"
+import CursorTrail from "@/components/cursor-trail"
+import ParticlesBackground from "@/components/particles-background"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -104,8 +105,15 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <ParallaxBackground />
+          {/* Reemplazamos ParallaxBackground con ParticlesBackground */}
+          <ParticlesBackground
+            particleCount={80}
+            connectionDistance={150}
+            interactiveDistance={200}
+            interactiveForce={5}
+          />
           <CustomCursor />
+          <CursorTrail color="rgba(0, 0, 0, 0.15)" size={6} trailLength={10} />
           {children}
         </ThemeProvider>
       </body>

@@ -3,6 +3,7 @@
 import type React from "react"
 
 import type { ReactNode } from "react"
+import { useEffect, useState } from "react"
 
 interface SmoothScrollLinkProps {
   href: string
@@ -12,6 +13,12 @@ interface SmoothScrollLinkProps {
 }
 
 export default function SmoothScrollLink({ href, children, className = "", duration = 800 }: SmoothScrollLinkProps) {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
 
@@ -41,8 +48,18 @@ export default function SmoothScrollLink({ href, children, className = "", durat
     }
   }
 
+  // Si estamos en el cliente, renderizamos el enlace con el manejador de eventos
+  if (isClient) {
+    return (
+      <a href={href} onClick={handleClick} className={className}>
+        {children}
+      </a>
+    )
+  }
+
+  // Si estamos en el servidor, renderizamos un enlace normal
   return (
-    <a href={href} onClick={handleClick} className={className}>
+    <a href={href} className={className}>
       {children}
     </a>
   )

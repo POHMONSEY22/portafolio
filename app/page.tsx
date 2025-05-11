@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
 import { motion } from "framer-motion"
@@ -22,12 +23,25 @@ import TextReveal from "@/components/text-reveal"
 import FadeInOnScroll from "@/components/fade-in-on-scroll"
 import MouseFollowEffect from "@/components/mouse-follow-effect"
 import SchemaOrg from "@/components/seo/schema-org"
+import MagneticButton from "@/components/magnetic-button"
+import ParticlesControls from "@/components/particles-controls"
 
 export default function Home() {
+  const [particlesSettings, setParticlesSettings] = useState({
+    particleCount: 80,
+    connectionDistance: 150,
+    interactiveForce: 5,
+    enabled: true,
+  })
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <SchemaOrg />
       <Toaster />
+
+      {/* Controles de partículas */}
+      <ParticlesControls onSettingsChange={setParticlesSettings} defaultSettings={particlesSettings} />
+
       {/* Header */}
       <header className="container mx-auto py-6">
         <motion.nav
@@ -112,28 +126,28 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.1 }}
-              className="flex gap-4"
+              className="flex flex-wrap gap-4"
             >
               <SmoothScrollLink href="#projects">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MagneticButton strength={40} radius={200}>
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
                     Ver proyectos
                   </Button>
-                </motion.div>
+                </MagneticButton>
               </SmoothScrollLink>
               <SmoothScrollLink href="#workflow">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MagneticButton strength={40} radius={200}>
                   <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
                     Mi proceso
                   </Button>
-                </motion.div>
+                </MagneticButton>
               </SmoothScrollLink>
               <SmoothScrollLink href="#contact">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <MagneticButton strength={40} radius={200}>
                   <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
                     Contacto
                   </Button>
-                </motion.div>
+                </MagneticButton>
               </SmoothScrollLink>
             </motion.div>
           </motion.div>
@@ -321,11 +335,11 @@ export default function Home() {
                 </CardContent>
                 <CardFooter>
                   <Link href="mailto:juanarboledag610@gmail.com">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <MagneticButton strength={30} radius={150}>
                       <Button variant="outline" size="sm">
                         Enviar email
                       </Button>
-                    </motion.div>
+                    </MagneticButton>
                   </Link>
                 </CardFooter>
               </Card>
@@ -342,11 +356,11 @@ export default function Home() {
                 </CardContent>
                 <CardFooter>
                   <Link href="https://github.com/POHMONSEY22" target="_blank">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <MagneticButton strength={30} radius={150}>
                       <Button variant="outline" size="sm">
                         Ver perfil
                       </Button>
-                    </motion.div>
+                    </MagneticButton>
                   </Link>
                 </CardFooter>
               </Card>
@@ -363,11 +377,11 @@ export default function Home() {
                 </CardContent>
                 <CardFooter>
                   <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <MagneticButton strength={30} radius={150}>
                       <Button variant="outline" size="sm">
                         Conectar
                       </Button>
-                    </motion.div>
+                    </MagneticButton>
                   </Link>
                 </CardFooter>
               </Card>

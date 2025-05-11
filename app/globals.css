@@ -72,12 +72,12 @@
   }
   body {
     @apply bg-background text-foreground;
-    cursor: none;
   }
 
-  @media (max-width: 768px) {
+  /* Solo aplicamos cursor: none en dispositivos de escritorio */
+  @media (min-width: 769px) {
     body {
-      cursor: auto;
+      cursor: none;
     }
   }
 }
