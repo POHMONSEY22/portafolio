@@ -12,19 +12,17 @@ import ProjectCard from "@/components/project-card"
 import SkillBadge from "@/components/skill-badge"
 import { ThemeToggle } from "@/components/theme-toggle"
 import ContactForm from "@/components/contact-form"
-import AnimatedSection from "@/components/animated-section"
-import AnimatedItem from "@/components/animated-item"
-import StaggeredChildren from "@/components/staggered-children"
 import ProfileImage from "@/components/profile-image"
 import WorkflowSection from "@/components/workflow-section"
-import AnimatedText from "@/components/animated-text"
 import SmoothScrollLink from "@/components/smooth-scroll-link"
-import TextReveal from "@/components/text-reveal"
-import FadeInOnScroll from "@/components/fade-in-on-scroll"
-import MouseFollowEffect from "@/components/mouse-follow-effect"
 import SchemaOrg from "@/components/seo/schema-org"
 import MagneticButton from "@/components/magnetic-button"
 import ParticlesControls from "@/components/particles-controls"
+import ScrollToTopEnhanced from "@/components/scroll-to-top-enhanced"
+import EnhancedSection from "@/components/enhanced-section"
+import EnhancedTextReveal from "@/components/enhanced-text-reveal"
+import EnhancedCardGrid from "@/components/enhanced-card-grid"
+import DramaticEntrance from "@/components/dramatic-entrance"
 
 export default function Home() {
   const [particlesSettings, setParticlesSettings] = useState({
@@ -89,72 +87,61 @@ export default function Home() {
 
       <main className="container mx-auto px-4 py-10 space-y-24">
         {/* Hero Section */}
-        <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 py-10">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="space-y-6 max-w-2xl"
-          >
-            <TextReveal>
-              <AnimatedText
-                text="Juan Pablo Gallo Arboleda"
-                el="h1"
+        <EnhancedSection
+          animationType="fade"
+          duration={1}
+          className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 py-10"
+        >
+          <div className="space-y-6 max-w-2xl">
+            <DramaticEntrance effect="curtain" delay={0.5} duration={1.5}>
+              <EnhancedTextReveal
+                animationType="wave"
+                delay={0.8}
+                staggerDelay={0.1}
                 className="text-4xl md:text-6xl font-bold tracking-tight"
-                animation={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.1,
-                    },
-                  },
-                }}
-              />
-            </TextReveal>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.9 }}
-              className="text-xl text-muted-foreground"
-            >
-              Grafitero digital, programador con estilo y amante del basket. Fusiono arte, música para que todo quede
-              con un toque personal y único.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.1 }}
-              className="flex flex-wrap gap-4"
-            >
-              <SmoothScrollLink href="#projects">
-                <MagneticButton strength={40} radius={200}>
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
-                    Ver proyectos
-                  </Button>
-                </MagneticButton>
-              </SmoothScrollLink>
-              <SmoothScrollLink href="#workflow">
-                <MagneticButton strength={40} radius={200}>
-                  <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
-                    Mi proceso
-                  </Button>
-                </MagneticButton>
-              </SmoothScrollLink>
-              <SmoothScrollLink href="#contact">
-                <MagneticButton strength={40} radius={200}>
-                  <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
-                    Contacto
-                  </Button>
-                </MagneticButton>
-              </SmoothScrollLink>
-            </motion.div>
-          </motion.div>
-          <MouseFollowEffect intensity={0.05}>
+              >
+                Juan Pablo Gallo Arboleda
+              </EnhancedTextReveal>
+            </DramaticEntrance>
+
+            <EnhancedSection animationType="slide" direction="up" delay={1.2} duration={0.8}>
+              <p className="text-xl text-muted-foreground">
+                Grafitero digital, programador con estilo y amante del basket. Fusiono arte, música para que todo quede
+                con un toque personal y único.
+              </p>
+            </EnhancedSection>
+
+            <EnhancedSection animationType="scale" delay={1.5} duration={0.6} stagger staggerDelay={0.1}>
+              <div className="flex flex-wrap gap-4">
+                <SmoothScrollLink href="#projects">
+                  <MagneticButton strength={40} radius={200}>
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+                      Ver proyectos
+                    </Button>
+                  </MagneticButton>
+                </SmoothScrollLink>
+                <SmoothScrollLink href="#workflow">
+                  <MagneticButton strength={40} radius={200}>
+                    <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
+                      Mi proceso
+                    </Button>
+                  </MagneticButton>
+                </SmoothScrollLink>
+                <SmoothScrollLink href="#contact">
+                  <MagneticButton strength={40} radius={200}>
+                    <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
+                      Contacto
+                    </Button>
+                  </MagneticButton>
+                </SmoothScrollLink>
+              </div>
+            </EnhancedSection>
+          </div>
+
+          <DramaticEntrance effect="portal" delay={0.3} duration={1.2}>
             <ProfileImage />
-          </MouseFollowEffect>
-        </section>
+          </DramaticEntrance>
+        </EnhancedSection>
 
         {/* Scroll indicator */}
         <motion.div
@@ -162,7 +149,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 1,
-            delay: 1.5,
+            delay: 2,
             repeat: Number.POSITIVE_INFINITY,
             repeatType: "reverse",
           }}
@@ -172,17 +159,25 @@ export default function Home() {
         </motion.div>
 
         {/* Skills Section */}
-        <AnimatedSection id="skills" className="space-y-10">
-          <div className="text-center space-y-4">
-            <FadeInOnScroll>
-              <h2 className="text-3xl font-bold">Tecnologías</h2>
+        <EnhancedSection id="skills" animationType="slide" direction="up" className="space-y-10">
+          <DramaticEntrance effect="spotlight" delay={0.2}>
+            <div className="text-center space-y-4">
+              <EnhancedTextReveal animationType="wave" className="text-3xl font-bold">
+                Tecnologías
+              </EnhancedTextReveal>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
               </p>
-            </FadeInOnScroll>
-          </div>
+            </div>
+          </DramaticEntrance>
 
-          <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 gap-6" initialDelay={0.2}>
+          <EnhancedCardGrid
+            animationType="spiral"
+            delay={0.5}
+            staggerDelay={0.15}
+            columns={2}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg">Frontend</CardTitle>
@@ -240,21 +235,29 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-          </StaggeredChildren>
-        </AnimatedSection>
+          </EnhancedCardGrid>
+        </EnhancedSection>
 
         {/* Projects Section */}
-        <AnimatedSection id="projects" className="space-y-10">
-          <div className="text-center space-y-4">
-            <FadeInOnScroll>
-              <h2 className="text-3xl font-bold">Proyectos</h2>
+        <EnhancedSection id="projects" animationType="slide" direction="up" className="space-y-10">
+          <DramaticEntrance effect="fold" delay={0.2}>
+            <div className="text-center space-y-4">
+              <EnhancedTextReveal animationType="glitch" className="text-3xl font-bold">
+                Proyectos
+              </EnhancedTextReveal>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Una selección de mis proyectos más recientes con sus respectivos enlaces.
               </p>
-            </FadeInOnScroll>
-          </div>
+            </div>
+          </DramaticEntrance>
 
-          <StaggeredChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" initialDelay={0.2}>
+          <EnhancedCardGrid
+            animationType="cascade"
+            delay={0.5}
+            staggerDelay={0.2}
+            columns={3}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             <ProjectCard
               title="MF DOOM Tribute"
               description="Página tributo al legendario rapero MF DOOM, con su biografía, discografía y legado musical."
@@ -302,27 +305,31 @@ export default function Home() {
               repoUrl="https://github.com/POHMONSEY22/portfolio"
               technologies={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
             />
-          </StaggeredChildren>
-        </AnimatedSection>
+          </EnhancedCardGrid>
+        </EnhancedSection>
 
         {/* Workflow Section */}
-        <AnimatedSection id="workflow" className="space-y-10">
-          <WorkflowSection />
-        </AnimatedSection>
+        <EnhancedSection id="workflow" animationType="wave" className="space-y-10">
+          <DramaticEntrance effect="shatter" delay={0.3}>
+            <WorkflowSection />
+          </DramaticEntrance>
+        </EnhancedSection>
 
         {/* Contact Section */}
-        <AnimatedSection id="contact" className="space-y-10 pb-20">
-          <div className="text-center space-y-4">
-            <FadeInOnScroll>
-              <h2 className="text-3xl font-bold">Contacto</h2>
+        <EnhancedSection id="contact" animationType="slide" direction="up" className="space-y-10 pb-20">
+          <DramaticEntrance effect="curtain" delay={0.2}>
+            <div className="text-center space-y-4">
+              <EnhancedTextReveal animationType="typewriter" className="text-3xl font-bold">
+                Contacto
+              </EnhancedTextReveal>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 ¿Interesado en trabajar juntos? Contáctame a través de cualquiera de estos medios.
               </p>
-            </FadeInOnScroll>
-          </div>
+            </div>
+          </DramaticEntrance>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <StaggeredChildren className="space-y-6" initialDelay={0.3}>
+            <EnhancedCardGrid animationType="wave" delay={0.5} staggerDelay={0.2} className="space-y-6">
               <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center gap-2">
@@ -385,13 +392,13 @@ export default function Home() {
                   </Link>
                 </CardFooter>
               </Card>
-            </StaggeredChildren>
+            </EnhancedCardGrid>
 
-            <AnimatedItem delay={0.5}>
+            <EnhancedSection animationType="scale" delay={0.8}>
               <ContactForm />
-            </AnimatedItem>
+            </EnhancedSection>
           </div>
-        </AnimatedSection>
+        </EnhancedSection>
       </main>
 
       {/* Footer */}
@@ -427,6 +434,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Botón de scroll to top */}
+      <ScrollToTopEnhanced showAfter={400} duration={1000} />
     </div>
   )
 }
