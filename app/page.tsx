@@ -107,8 +107,36 @@ export default function Home() {
         >
           <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl text-center md:text-left">
             <DramaticEntrance effect="curtain" delay={0.5} duration={1.5}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                <span className="text-foreground">Juan Pablo</span> <span className="text-primary">Gallo Arboleda</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight cursor-pointer select-none">
+                <motion.span
+                  className="text-foreground inline-block"
+                  whileHover={{
+                    scale: 1.05,
+                    textShadow: "0px 0px 8px rgba(255,255,255,0.8)",
+                    transition: { duration: 0.3 },
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Juan Pablo
+                </motion.span>{" "}
+                <motion.span
+                  className="text-primary inline-block"
+                  whileHover={{
+                    scale: 1.05,
+                    rotate: [0, -2, 2, -2, 0],
+                    textShadow: "0px 0px 8px rgba(0,0,0,0.8)",
+                    transition: {
+                      scale: { duration: 0.3 },
+                      rotate: { duration: 0.6, ease: "easeInOut" },
+                      textShadow: { duration: 0.3 },
+                    },
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Gallo Arboleda
+                </motion.span>
               </h1>
             </DramaticEntrance>
 
