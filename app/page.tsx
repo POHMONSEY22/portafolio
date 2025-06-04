@@ -335,46 +335,72 @@ export default function Home() {
               demoUrl="https://717-streetwear.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/717-streetwear"
               technologies={["React", "Next.js", "Tailwind CSS", "E-commerce", "Responsive Design", "UI/UX"]}
+              featured={true}
+              recent={true}
             />
 
             <ProjectCard
               title="MF DOOM Tribute"
-              description="Página tributo al legendario rapero MF DOOM, con su biografía, discografía y legado musical."
-              demoUrl="https://mf-doom-theta.vercel.app/"
+              description="Sitio web tributo interactivo dedicado al legendario rapero MF DOOM 'El Villano del Hip-Hop'. Incluye navegación inmersiva con secciones de biografía detallada, discografía completa con reproductor de audio, cronología de su legado musical, diseño temático con la icónica máscara, efectos visuales cinematográficos y experiencia de usuario optimizada para fanáticos del hip-hop underground."
+              demoUrl="https://elvillanodelamascara.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/mf-doom"
-              technologies={["React", "Next.js", "CSS", "Responsive Design"]}
+              technologies={["React", "Next.js", "CSS", "Audio API", "Responsive Design", "UI/UX"]}
+              featured={true}
+              trending={true}
             />
 
             <ProjectCard
               title="Canserbero"
-              description="Sitio web dedicado al rapero venezolano Canserbero, mostrando su vida, música e impacto cultural."
+              description="Plataforma web dedicada al rapero venezolano Canserbero, featuring biografía completa, discografía interactiva con reproductor de música integrado, galería de fotos, cronología de su carrera artística, letras de canciones, tributos de fanáticos, diseño responsive con temática urbana y experiencia inmersiva que celebra su legado en el rap latinoamericano."
               demoUrl="https://canserbero.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/canserbero"
-              technologies={["JavaScript", "HTML5", "CSS3", "Web Audio API"]}
+              technologies={["JavaScript", "HTML5", "CSS3", "Web Audio API", "Responsive Design", "Music Player"]}
+              recent={true}
             />
 
             <ProjectCard
               title="Tupac Amaru"
-              description="Proyecto dedicado a Tupac Shakur, explorando su música, poesía y legado en la cultura hip-hop."
+              description="Sitio web tributo a Tupac Shakur con diseño cinematográfico, incluyendo biografía interactiva, discografía completa con reproductor multimedia, galería de imágenes históricas, cronología de vida y carrera, citas inspiracionales, análisis de su impacto cultural, navegación fluida con animaciones suaves y experiencia inmersiva que honra su legado en el hip-hop mundial."
               demoUrl="https://tupac-amaru.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/tupac-amaru"
-              technologies={["React", "Tailwind CSS", "Framer Motion", "Next.js"]}
+              technologies={[
+                "React",
+                "Tailwind CSS",
+                "Framer Motion",
+                "Next.js",
+                "Multimedia Player",
+                "Responsive Design",
+              ]}
             />
 
             <ProjectCard
               title="Clau & Yuli"
-              description="Sitio web personal o proyecto colaborativo con diseño moderno y experiencia de usuario intuitiva."
+              description="Sitio web personal colaborativo con diseño moderno y minimalista, featuring galería de fotos interactiva, secciones personalizadas, navegación intuitiva, diseño responsive optimizado para múltiples dispositivos, efectos visuales sutiles, sistema de contacto integrado y experiencia de usuario cuidadosamente diseñada para mostrar contenido personal de manera elegante y profesional."
               demoUrl="https://clauyuli.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/clauyuli"
-              technologies={["React", "CSS Modules", "Responsive Design", "JavaScript"]}
+              technologies={[
+                "React",
+                "CSS Modules",
+                "Responsive Design",
+                "JavaScript",
+                "Photo Gallery",
+                "Contact System",
+              ]}
             />
 
             <ProjectCard
               title="Kobe Bryant Tribute"
-              description="Homenaje a la leyenda del baloncesto Kobe Bryant, con estadísticas, logros y momentos memorables."
+              description="Homenaje interactivo a la leyenda del baloncesto Kobe Bryant, incluyendo estadísticas detalladas de carrera, gráficos dinámicos con Chart.js, cronología de logros históricos, galería multimedia, momentos memorables de la 'Mamba Mentality', diseño responsive con temática Lakers, animaciones fluidas y experiencia inmersiva que celebra su legado deportivo y personal."
               demoUrl="https://kobe-bryant-717.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/kobe-bryant"
-              technologies={["Next.js", "Chart.js", "Tailwind CSS", "JavaScript"]}
+              technologies={[
+                "Next.js",
+                "Chart.js",
+                "Tailwind CSS",
+                "JavaScript",
+                "Data Visualization",
+                "Sports Analytics",
+              ]}
             />
           </EnhancedCardGrid>
         </EnhancedSection>
@@ -406,18 +432,18 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-7xl mx-auto">
             <EnhancedCardGrid animationType="wave" delay={0.5} staggerDelay={0.2} className="h-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 h-full">
-                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
-                  <CardHeader className="pb-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 h-full">
+                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
+                  <CardHeader className="pb-3 px-6 pt-6">
                     <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
                       <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
                       WhatsApp
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="px-6 pb-2">
                     <p className="text-muted-foreground text-sm sm:text-base">Contáctame directamente por WhatsApp</p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="pt-4 px-6 pb-6">
                     <Link href={whatsappUrl} target="_blank" className="w-full">
                       <MagneticButton strength={30} radius={150} className="w-full">
                         <Button
@@ -432,17 +458,17 @@ export default function Home() {
                   </CardFooter>
                 </Card>
 
-                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
-                  <CardHeader className="pb-2">
+                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
+                  <CardHeader className="pb-3 px-6 pt-6">
                     <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
                       <FileText className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
                       Hoja de Vida
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="px-6 pb-2">
                     <p className="text-muted-foreground text-sm sm:text-base">Descarga mi CV completo</p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="pt-4 px-6 pb-6">
                     <Link href={cvUrl} target="_blank" className="w-full">
                       <MagneticButton strength={30} radius={150} className="w-full">
                         <Button variant="outline" size="sm" className="w-full">
@@ -453,17 +479,17 @@ export default function Home() {
                   </CardFooter>
                 </Card>
 
-                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
-                  <CardHeader className="pb-2">
+                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
+                  <CardHeader className="pb-3 px-6 pt-6">
                     <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
                       <Github className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
                       GitHub
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="px-6 pb-2">
                     <p className="text-muted-foreground text-sm sm:text-base">POHMONSEY22</p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="pt-4 px-6 pb-6">
                     <Link href="https://github.com/POHMONSEY22" target="_blank" className="w-full">
                       <MagneticButton strength={30} radius={150} className="w-full">
                         <Button variant="outline" size="sm" className="w-full">
@@ -474,17 +500,17 @@ export default function Home() {
                   </CardFooter>
                 </Card>
 
-                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
-                  <CardHeader className="pb-2">
+                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
+                  <CardHeader className="pb-3 px-6 pt-6">
                     <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
                       <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
                       LinkedIn
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="px-6 pb-2">
                     <p className="text-muted-foreground text-sm sm:text-base">Juan Pablo Gallo</p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="pt-4 px-6 pb-6">
                     <Link
                       href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/"
                       target="_blank"
