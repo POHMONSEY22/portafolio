@@ -107,14 +107,9 @@ export default function Home() {
         >
           <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl text-center md:text-left">
             <DramaticEntrance effect="curtain" delay={0.5} duration={1.5}>
-              <EnhancedTextReveal
-                animationType="wave"
-                delay={0.8}
-                staggerDelay={0.1}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
-              >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                 Juan Pablo Gallo Arboleda
-              </EnhancedTextReveal>
+              </h1>
             </DramaticEntrance>
 
             <EnhancedSection animationType="slide" direction="up" delay={1.2} duration={0.8}>
