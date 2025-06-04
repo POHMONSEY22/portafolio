@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion, useAnimation } from "framer-motion"
-import { ExternalLink, Github, Star, Clock, Zap, Eye, TrendingUp } from "lucide-react"
+import { ExternalLink, Github, Star, Clock, Zap, Eye } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -41,16 +41,13 @@ export default function ProjectCard({
   stats = { views: 0 },
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const [currentViews, setCurrentViews] = useState(stats.views)
   const [animatedViews, setAnimatedViews] = useState(0)
-  const [isIncrementing, setIsIncrementing] = useState(false)
-  const [lastIncrement, setLastIncrement] = useState(Date.now())
   const controls = useAnimation()
 
   // Animar contador inicial cuando el componente entra en vista
   useEffect(() => {
     const animateInitialCounter = async () => {
-      const increment = currentViews / 30
+      const increment = stats.views / 30
       for (let i = 0; i <= 30; i++) {
         setTimeout(() => {
           setAnimatedViews(Math.floor(increment * i))
@@ -59,74 +56,7 @@ export default function ProjectCard({
     }
 
     animateInitialCounter()
-  }, [currentViews])
-
-  // Sistema de incremento en tiempo real
-  useEffect(() => {
-    const getIncrementRate = () => {
-      // Proyectos más populares incrementan más rápido
-      if (currentViews > 15000) return { min: 3000, max: 8000, increment: [1, 2, 3] } // Muy popular
-      if (currentViews > 10000) return { min: 4000, max: 10000, increment: [1, 2] } // Popular
-      if (currentViews > 5000) return { min: 6000, max: 15000, increment: [1, 1, 2] } // Moderado
-      return { min: 10000, max: 25000, increment: [1] } // Menos popular
-    }
-
-    const startRealTimeIncrement = () => {
-      const { min, max, increment } = getIncrementRate()
-
-      const scheduleNextIncrement = () => {
-        const randomDelay = Math.random() * (max - min) + min
-        const randomIncrement = increment[Math.floor(Math.random() * increment.length)]
-
-        setTimeout(() => {
-          setIsIncrementing(true)
-          setCurrentViews((prev) => prev + randomIncrement)
-          setLastIncrement(Date.now())
-
-          // Efecto visual de incremento
-          setTimeout(() => setIsIncrementing(false), 500)
-
-          // Programar el siguiente incremento
-          scheduleNextIncrement()
-        }, randomDelay)
-      }
-
-      // Delay inicial aleatorio para que no todos empiecen al mismo tiempo
-      const initialDelay = Math.random() * 5000 + 2000
-      setTimeout(scheduleNextIncrement, initialDelay)
-    }
-
-    startRealTimeIncrement()
-  }, []) // Solo se ejecuta una vez al montar el componente
-
-  // Actualizar el contador animado cuando cambian las vistas actuales
-  useEffect(() => {
-    if (currentViews !== stats.views) {
-      // Animación suave hacia el nuevo valor
-      const startValue = animatedViews
-      const endValue = currentViews
-      const duration = 800
-      const startTime = Date.now()
-
-      const animate = () => {
-        const elapsed = Date.now() - startTime
-        const progress = Math.min(elapsed / duration, 1)
-
-        // Función de easing suave
-        const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4)
-        const easedProgress = easeOutQuart(progress)
-
-        const currentValue = Math.floor(startValue + (endValue - startValue) * easedProgress)
-        setAnimatedViews(currentValue)
-
-        if (progress < 1) {
-          requestAnimationFrame(animate)
-        }
-      }
-
-      requestAnimationFrame(animate)
-    }
-  }, [currentViews])
+  }, [stats.views])
 
   const getBadgeIcon = (type: string) => {
     switch (type) {
@@ -175,9 +105,6 @@ export default function ProjectCard({
     }
     return num.toString()
   }
-
-  // Determinar si mostrar indicador de actividad reciente
-  const isRecentlyActive = Date.now() - lastIncrement < 10000 // Últimos 10 segundos
 
   return (
     <motion.div
@@ -236,74 +163,29 @@ export default function ProjectCard({
               </Badge>
             </motion.div>
           )}
-
-          {/* Indicador de actividad en tiempo real */}
-          {isRecentlyActive && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, x: -20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              exit={{ opacity: 0, scale: 0.8, x: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white border-none shadow-lg flex items-center gap-1 text-xs font-semibold animate-pulse">
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-                >
-                  <div className="w-2 h-2 bg-white rounded-full" />
-                </motion.div>
-                En Vivo
-              </Badge>
-            </motion.div>
-          )}
         </div>
 
-        {/* Contador de vistas con efectos en tiempo real */}
-        <div className="absolute top-3 right-3 z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className={`backdrop-blur-sm text-white px-2 py-1 rounded-full flex items-center gap-1 text-xs transition-all duration-300 ${
-              isIncrementing ? "bg-green-600/90 shadow-lg shadow-green-500/30" : "bg-black/70"
-            }`}
-          >
+        {/* Contador de vistas realista */}
+        {stats.views > 0 && (
+          <div className="absolute top-3 right-3 z-10">
             <motion.div
-              animate={
-                isIncrementing
-                  ? {
-                      scale: [1, 1.3, 1],
-                      rotate: [0, 10, -10, 0],
-                    }
-                  : {}
-              }
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0, scale: 0.8, x: 20 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="bg-black/70 backdrop-blur-sm text-white px-2 py-1 rounded-full flex items-center gap-1 text-xs"
             >
               <Eye className="h-3 w-3" />
-            </motion.div>
-            <motion.span
-              key={animatedViews}
-              initial={{ scale: isIncrementing ? 1.3 : 1 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
-              className="font-semibold"
-            >
-              {formatNumber(animatedViews)}
-            </motion.span>
-
-            {/* Indicador de incremento */}
-            {isIncrementing && (
-              <motion.div
-                initial={{ opacity: 0, y: 0, scale: 0.8 }}
-                animate={{ opacity: [0, 1, 0], y: -15, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className="absolute -top-4 left-1/2 transform -translate-x-1/2"
+              <motion.span
+                key={animatedViews}
+                initial={{ scale: 1.2 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.2 }}
               >
-                <TrendingUp className="h-3 w-3 text-green-400" />
-              </motion.div>
-            )}
-          </motion.div>
-        </div>
+                {formatNumber(animatedViews)}
+              </motion.span>
+            </motion.div>
+          </div>
+        )}
 
         {/* Efecto de brillo para proyectos destacados */}
         {featured && (
@@ -311,21 +193,6 @@ export default function ProjectCard({
             className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 opacity-0 pointer-events-none"
             animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.3 }}
-          />
-        )}
-
-        {/* Efecto de pulso para actividad reciente */}
-        {isRecentlyActive && (
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-blue-500/5 pointer-events-none"
-            animate={{
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
           />
         )}
 

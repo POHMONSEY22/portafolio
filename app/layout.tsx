@@ -6,6 +6,9 @@ import { ThemeProvider } from "@/components/theme-provider"
 import CustomCursor from "@/components/custom-cursor"
 import CursorTrail from "@/components/cursor-trail"
 import ParticlesBackground from "@/components/particles-background"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -105,7 +108,6 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {/* Reemplazamos ParallaxBackground con ParticlesBackground */}
           <ParticlesBackground
             particleCount={80}
             connectionDistance={150}
@@ -114,7 +116,11 @@ export default function RootLayout({
           />
           <CustomCursor />
           <CursorTrail color="rgba(0, 0, 0, 0.15)" size={6} trailLength={10} />
-          {children}
+          <Suspense>
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>

@@ -23,7 +23,7 @@ import EnhancedSection from "@/components/enhanced-section"
 import EnhancedTextReveal from "@/components/enhanced-text-reveal"
 import EnhancedCardGrid from "@/components/enhanced-card-grid"
 import DramaticEntrance from "@/components/dramatic-entrance"
-import RealTimeStatsIndicator from "@/components/real-time-stats-indicator"
+import AnalyticsWidget from "@/components/analytics-widget"
 
 export default function Home() {
   const [particlesSettings, setParticlesSettings] = useState({
@@ -45,8 +45,8 @@ export default function Home() {
       <SchemaOrg />
       <Toaster />
 
-      {/* Indicador de estadísticas en tiempo real */}
-      <RealTimeStatsIndicator />
+      {/* Widget de Analytics */}
+      <AnalyticsWidget />
 
       {/* Controles de partículas */}
       <ParticlesControls onSettingsChange={setParticlesSettings} defaultSettings={particlesSettings} />
@@ -342,7 +342,7 @@ export default function Home() {
               featured={true}
               recent={true}
               stats={{
-                views: 15420,
+                views: 247,
               }}
             />
 
@@ -355,7 +355,7 @@ export default function Home() {
               featured={true}
               trending={true}
               stats={{
-                views: 12850,
+                views: 189,
               }}
             />
 
@@ -366,7 +366,7 @@ export default function Home() {
               repoUrl="https://github.com/POHMONSEY22/canserbero"
               technologies={["JavaScript", "HTML5", "CSS3", "Web Audio API", "Responsive Design", "Music Player"]}
               stats={{
-                views: 8930,
+                views: 156,
               }}
             />
 
@@ -386,7 +386,7 @@ export default function Home() {
               featured={true}
               recent={true}
               stats={{
-                views: 6750,
+                views: 134,
               }}
             />
 
@@ -404,7 +404,7 @@ export default function Home() {
                 "Contact System",
               ]}
               stats={{
-                views: 4320,
+                views: 98,
               }}
             />
 
@@ -422,7 +422,7 @@ export default function Home() {
                 "Sports Analytics",
               ]}
               stats={{
-                views: 7890,
+                views: 112,
               }}
             />
           </EnhancedCardGrid>
