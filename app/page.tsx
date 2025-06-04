@@ -23,6 +23,7 @@ import EnhancedSection from "@/components/enhanced-section"
 import EnhancedTextReveal from "@/components/enhanced-text-reveal"
 import EnhancedCardGrid from "@/components/enhanced-card-grid"
 import DramaticEntrance from "@/components/dramatic-entrance"
+import RealTimeStatsIndicator from "@/components/real-time-stats-indicator"
 
 export default function Home() {
   const [particlesSettings, setParticlesSettings] = useState({
@@ -43,6 +44,9 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <SchemaOrg />
       <Toaster />
+
+      {/* Indicador de estadísticas en tiempo real */}
+      <RealTimeStatsIndicator />
 
       {/* Controles de partículas */}
       <ParticlesControls onSettingsChange={setParticlesSettings} defaultSettings={particlesSettings} />
@@ -337,6 +341,9 @@ export default function Home() {
               technologies={["React", "Next.js", "Tailwind CSS", "E-commerce", "Responsive Design", "UI/UX"]}
               featured={true}
               recent={true}
+              stats={{
+                views: 15420,
+              }}
             />
 
             <ProjectCard
@@ -347,6 +354,9 @@ export default function Home() {
               technologies={["React", "Next.js", "CSS", "Audio API", "Responsive Design", "UI/UX"]}
               featured={true}
               trending={true}
+              stats={{
+                views: 12850,
+              }}
             />
 
             <ProjectCard
@@ -355,7 +365,9 @@ export default function Home() {
               demoUrl="https://canserbero.vercel.app/"
               repoUrl="https://github.com/POHMONSEY22/canserbero"
               technologies={["JavaScript", "HTML5", "CSS3", "Web Audio API", "Responsive Design", "Music Player"]}
-              recent={true}
+              stats={{
+                views: 8930,
+              }}
             />
 
             <ProjectCard
@@ -371,6 +383,11 @@ export default function Home() {
                 "Multimedia Player",
                 "Responsive Design",
               ]}
+              featured={true}
+              recent={true}
+              stats={{
+                views: 6750,
+              }}
             />
 
             <ProjectCard
@@ -386,6 +403,9 @@ export default function Home() {
                 "Photo Gallery",
                 "Contact System",
               ]}
+              stats={{
+                views: 4320,
+              }}
             />
 
             <ProjectCard
@@ -401,6 +421,9 @@ export default function Home() {
                 "Data Visualization",
                 "Sports Analytics",
               ]}
+              stats={{
+                views: 7890,
+              }}
             />
           </EnhancedCardGrid>
         </EnhancedSection>
