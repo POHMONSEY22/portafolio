@@ -303,6 +303,14 @@ export default function Home() {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto"
           >
             <ProjectCard
+              title="717 Streetwear"
+              description="E-commerce completo de streetwear con carrito de compras, gestión de inventario, carousel de productos destacados, sistema de categorías, diseño responsive y experiencia de usuario optimizada para conversiones. Incluye navegación intuitiva, filtros de productos y checkout simplificado."
+              demoUrl="https://717-streetwear.vercel.app/"
+              repoUrl="https://github.com/POHMONSEY22/717-streetwear"
+              technologies={["React", "Next.js", "Tailwind CSS", "E-commerce", "Responsive Design", "UI/UX"]}
+            />
+
+            <ProjectCard
               title="MF DOOM Tribute"
               description="Página tributo al legendario rapero MF DOOM, con su biografía, discografía y legado musical."
               demoUrl="https://mf-doom-theta.vercel.app/"
