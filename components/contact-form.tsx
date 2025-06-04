@@ -9,7 +9,9 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Send } from "lucide-react"
+import { Send, Phone } from "lucide-react"
+import Link from "next/link"
+import MagneticButton from "./magnetic-button"
 
 export default function ContactForm() {
   const { toast } = useToast()
@@ -20,6 +22,10 @@ export default function ContactForm() {
     subject: "",
     message: "",
   })
+
+  // Número de WhatsApp (reemplaza con tu número real)
+  const whatsappNumber = "573113456789" // Reemplaza con tu número real incluyendo código de país
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -75,14 +81,31 @@ export default function ContactForm() {
 
   return (
     <Card className="w-full max-w-md mx-auto bg-background/50 backdrop-blur-sm border border-primary/10">
-      <CardHeader>
-        <CardTitle>Envíame un mensaje</CardTitle>
-        <CardDescription>Completa el formulario y me pondré en contacto contigo lo antes posible.</CardDescription>
+      <CardHeader className="pb-4">
+        <CardTitle className="text-lg sm:text-xl">Envíame un mensaje</CardTitle>
+        <CardDescription className="text-sm sm:text-base">
+          Completa el formulario y me pondré en contacto contigo lo antes posible.
+        </CardDescription>
+        <div className="mt-4">
+          <Link href={whatsappUrl} target="_blank">
+            <MagneticButton strength={30} radius={150}>
+              <Button
+                variant="default"
+                className="w-full bg-green-600 hover:bg-green-700 text-white text-sm sm:text-base"
+              >
+                <Phone className="h-4 w-4 mr-2" />
+                Contactar por WhatsApp
+              </Button>
+            </MagneticButton>
+          </Link>
+        </div>
       </CardHeader>
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Nombre</Label>
+            <Label htmlFor="name" className="text-sm sm:text-base">
+              Nombre
+            </Label>
             <Input
               id="name"
               name="name"
@@ -90,10 +113,13 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
+              className="text-sm sm:text-base"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-sm sm:text-base">
+              Email
+            </Label>
             <Input
               id="email"
               name="email"
@@ -102,10 +128,13 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
+              className="text-sm sm:text-base"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="subject">Asunto</Label>
+            <Label htmlFor="subject" className="text-sm sm:text-base">
+              Asunto
+            </Label>
             <Input
               id="subject"
               name="subject"
@@ -113,24 +142,27 @@ export default function ContactForm() {
               value={formData.subject}
               onChange={handleChange}
               required
+              className="text-sm sm:text-base"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="message">Mensaje</Label>
+            <Label htmlFor="message" className="text-sm sm:text-base">
+              Mensaje
+            </Label>
             <Textarea
               id="message"
               name="message"
               placeholder="Escribe tu mensaje aquí..."
-              rows={5}
+              rows={4}
               value={formData.message}
               onChange={handleChange}
               required
-              className="resize-none"
+              className="resize-none text-sm sm:text-base"
             />
           </div>
         </CardContent>
         <CardFooter>
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <Button type="submit" className="w-full text-sm sm:text-base" disabled={isSubmitting}>
             {isSubmitting ? (
               <span className="flex items-center gap-2">
                 <svg

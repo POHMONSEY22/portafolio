@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowDown, FileText, Phone } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
@@ -32,6 +32,13 @@ export default function Home() {
     enabled: true,
   })
 
+  // Número de WhatsApp (reemplaza con tu número real)
+  const whatsappNumber = "573113456789" // Reemplaza con tu número real incluyendo código de país
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`
+
+  // URL de tu hoja de vida (reemplaza con la URL real)
+  const cvUrl = "/cv.pdf" // Asegúrate de añadir tu CV en la carpeta public
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
       <SchemaOrg />
@@ -41,7 +48,7 @@ export default function Home() {
       <ParticlesControls onSettingsChange={setParticlesSettings} defaultSettings={particlesSettings} />
 
       {/* Header */}
-      <header className="container mx-auto py-6">
+      <header className="container mx-auto py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +59,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl font-bold"
+            className="text-lg sm:text-xl md:text-2xl font-bold"
           >
             JUAN<span className="text-primary">PABLO</span>
           </motion.div>
@@ -60,24 +67,30 @@ export default function Home() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex gap-4 items-center"
+            className="flex gap-2 sm:gap-3 md:gap-4 items-center"
           >
             <ThemeToggle />
             <Link href="https://github.com/POHMONSEY22" target="_blank">
-              <Button variant="ghost" size="icon">
-                <Github className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
+                <Github className="h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="#contact">
-              <Button variant="ghost" size="icon">
-                <Mail className="h-5 w-5" />
-                <span className="sr-only">Contact</span>
+            <Link href={whatsappUrl} target="_blank">
+              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
+                <Phone className="h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+                <span className="sr-only">WhatsApp</span>
+              </Button>
+            </Link>
+            <Link href={cvUrl} target="_blank">
+              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
+                <FileText className="h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+                <span className="sr-only">Hoja de Vida</span>
               </Button>
             </Link>
             <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
+                <Linkedin className="h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
@@ -85,61 +98,82 @@ export default function Home() {
         </motion.nav>
       </header>
 
-      <main className="container mx-auto px-4 py-10 space-y-24">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-12 space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-28">
         {/* Hero Section */}
         <EnhancedSection
           animationType="fade"
           duration={1}
-          className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 py-10"
+          className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 py-6 sm:py-8 md:py-12"
         >
-          <div className="space-y-6 max-w-2xl">
+          <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl text-center md:text-left">
             <DramaticEntrance effect="curtain" delay={0.5} duration={1.5}>
               <EnhancedTextReveal
                 animationType="wave"
                 delay={0.8}
                 staggerDelay={0.1}
-                className="text-4xl md:text-6xl font-bold tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
               >
                 Juan Pablo Gallo Arboleda
               </EnhancedTextReveal>
             </DramaticEntrance>
 
             <EnhancedSection animationType="slide" direction="up" delay={1.2} duration={0.8}>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed">
                 Grafitero digital, programador con estilo y amante del basket. Fusiono arte, música para que todo quede
                 con un toque personal y único.
               </p>
             </EnhancedSection>
 
             <EnhancedSection animationType="scale" delay={1.5} duration={0.6} stagger staggerDelay={0.1}>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row md:grid md:grid-cols-2 lg:flex lg:flex-row flex-wrap gap-3 sm:gap-4 justify-center md:justify-start">
                 <SmoothScrollLink href="#projects">
                   <MagneticButton strength={40} radius={200}>
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto">
                       Ver proyectos
                     </Button>
                   </MagneticButton>
                 </SmoothScrollLink>
                 <SmoothScrollLink href="#workflow">
                   <MagneticButton strength={40} radius={200}>
-                    <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto"
+                    >
                       Mi proceso
                     </Button>
                   </MagneticButton>
                 </SmoothScrollLink>
-                <SmoothScrollLink href="#contact">
+                <Link href={whatsappUrl} target="_blank">
                   <MagneticButton strength={40} radius={200}>
-                    <Button variant="outline" size="lg" className="border-primary/20 hover:border-primary/50">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto"
+                    >
                       Contacto
                     </Button>
                   </MagneticButton>
-                </SmoothScrollLink>
+                </Link>
+                <Link href={cvUrl} target="_blank">
+                  <MagneticButton strength={40} radius={200}>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto"
+                    >
+                      Hoja de Vida
+                    </Button>
+                  </MagneticButton>
+                </Link>
               </div>
             </EnhancedSection>
           </div>
 
           <DramaticEntrance effect="portal" delay={0.3} duration={1.2}>
-            <ProfileImage />
+            <div className="flex-shrink-0">
+              <ProfileImage />
+            </div>
           </DramaticEntrance>
         </EnhancedSection>
 
@@ -153,19 +187,24 @@ export default function Home() {
             repeat: Number.POSITIVE_INFINITY,
             repeatType: "reverse",
           }}
-          className="flex justify-center -mt-10"
+          className="flex justify-center -mt-6 sm:-mt-8 md:-mt-10"
         >
-          <ArrowDown className="h-8 w-8 text-primary/70" />
+          <ArrowDown className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary/70" />
         </motion.div>
 
         {/* Skills Section */}
-        <EnhancedSection id="skills" animationType="slide" direction="up" className="space-y-10">
+        <EnhancedSection
+          id="skills"
+          animationType="slide"
+          direction="up"
+          className="space-y-8 sm:space-y-10 md:space-y-12"
+        >
           <DramaticEntrance effect="spotlight" delay={0.2}>
-            <div className="text-center space-y-4">
-              <EnhancedTextReveal animationType="wave" className="text-3xl font-bold">
+            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+              <EnhancedTextReveal animationType="wave" className="text-2xl sm:text-3xl md:text-4xl font-bold">
                 Tecnologías
               </EnhancedTextReveal>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
                 Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
               </p>
             </div>
@@ -176,11 +215,11 @@ export default function Home() {
             delay={0.5}
             staggerDelay={0.15}
             columns={2}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto"
           >
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
-                <CardTitle className="text-lg">Frontend</CardTitle>
+                <CardTitle className="text-base sm:text-lg md:text-xl">Frontend</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -194,9 +233,9 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
-                <CardTitle className="text-lg">Backend</CardTitle>
+                <CardTitle className="text-base sm:text-lg md:text-xl">Backend</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -208,9 +247,9 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
-                <CardTitle className="text-lg">Herramientas</CardTitle>
+                <CardTitle className="text-base sm:text-lg md:text-xl">Herramientas</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -222,9 +261,9 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
-                <CardTitle className="text-lg">Otros</CardTitle>
+                <CardTitle className="text-base sm:text-lg md:text-xl">Otros</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -239,13 +278,18 @@ export default function Home() {
         </EnhancedSection>
 
         {/* Projects Section */}
-        <EnhancedSection id="projects" animationType="slide" direction="up" className="space-y-10">
+        <EnhancedSection
+          id="projects"
+          animationType="slide"
+          direction="up"
+          className="space-y-8 sm:space-y-10 md:space-y-12"
+        >
           <DramaticEntrance effect="fold" delay={0.2}>
-            <div className="text-center space-y-4">
-              <EnhancedTextReveal animationType="glitch" className="text-3xl font-bold">
+            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+              <EnhancedTextReveal animationType="glitch" className="text-2xl sm:text-3xl md:text-4xl font-bold">
                 Proyectos
               </EnhancedTextReveal>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
                 Una selección de mis proyectos más recientes con sus respectivos enlaces.
               </p>
             </div>
@@ -256,7 +300,7 @@ export default function Home() {
             delay={0.5}
             staggerDelay={0.2}
             columns={3}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto"
           >
             <ProjectCard
               title="MF DOOM Tribute"
@@ -297,104 +341,137 @@ export default function Home() {
               repoUrl="https://github.com/POHMONSEY22/kobe-bryant"
               technologies={["Next.js", "Chart.js", "Tailwind CSS", "JavaScript"]}
             />
-
-            <ProjectCard
-              title="Portfolio Personal"
-              description="Sitio web personal que muestra mis proyectos, habilidades y experiencia como desarrollador frontend."
-              demoUrl="https://pohmonsey22.github.io/portfolio/"
-              repoUrl="https://github.com/POHMONSEY22/portfolio"
-              technologies={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
-            />
           </EnhancedCardGrid>
         </EnhancedSection>
 
         {/* Workflow Section */}
-        <EnhancedSection id="workflow" animationType="wave" className="space-y-10">
+        <EnhancedSection id="workflow" animationType="wave" className="space-y-8 sm:space-y-10 md:space-y-12">
           <DramaticEntrance effect="shatter" delay={0.3}>
             <WorkflowSection />
           </DramaticEntrance>
         </EnhancedSection>
 
         {/* Contact Section */}
-        <EnhancedSection id="contact" animationType="slide" direction="up" className="space-y-10 pb-20">
+        <EnhancedSection
+          id="contact"
+          animationType="slide"
+          direction="up"
+          className="space-y-8 sm:space-y-10 md:space-y-12 pb-16 sm:pb-20 md:pb-24"
+        >
           <DramaticEntrance effect="curtain" delay={0.2}>
-            <div className="text-center space-y-4">
-              <EnhancedTextReveal animationType="typewriter" className="text-3xl font-bold">
+            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+              <EnhancedTextReveal animationType="typewriter" className="text-2xl sm:text-3xl md:text-4xl font-bold">
                 Contacto
               </EnhancedTextReveal>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
                 ¿Interesado en trabajar juntos? Contáctame a través de cualquiera de estos medios.
               </p>
             </div>
           </DramaticEntrance>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <EnhancedCardGrid animationType="wave" delay={0.5} staggerDelay={0.2} className="space-y-6">
-              <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
-                <CardHeader className="pb-2">
-                  <CardTitle className="flex items-center gap-2">
-                    <Mail className="h-5 w-5 text-primary" />
-                    Email
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">juanarboledag610@gmail.com</p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="mailto:juanarboledag610@gmail.com">
-                    <MagneticButton strength={30} radius={150}>
-                      <Button variant="outline" size="sm">
-                        Enviar email
-                      </Button>
-                    </MagneticButton>
-                  </Link>
-                </CardFooter>
-              </Card>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-7xl mx-auto">
+            <EnhancedCardGrid
+              animationType="wave"
+              delay={0.5}
+              staggerDelay={0.2}
+              className="space-y-4 sm:space-y-6 md:col-span-2 lg:col-span-1"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
+                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
+                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
+                      WhatsApp
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm sm:text-base">Contáctame directamente por WhatsApp</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link href={whatsappUrl} target="_blank" className="w-full">
+                      <MagneticButton strength={30} radius={150} className="w-full">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="bg-green-600 hover:bg-green-700 text-white border-none w-full"
+                        >
+                          Enviar mensaje
+                        </Button>
+                      </MagneticButton>
+                    </Link>
+                  </CardFooter>
+                </Card>
 
-              <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
-                <CardHeader className="pb-2">
-                  <CardTitle className="flex items-center gap-2">
-                    <Github className="h-5 w-5 text-primary" />
-                    GitHub
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">POHMONSEY22</p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="https://github.com/POHMONSEY22" target="_blank">
-                    <MagneticButton strength={30} radius={150}>
-                      <Button variant="outline" size="sm">
-                        Ver perfil
-                      </Button>
-                    </MagneticButton>
-                  </Link>
-                </CardFooter>
-              </Card>
+                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
+                      <FileText className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
+                      Hoja de Vida
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm sm:text-base">Descarga mi CV completo</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link href={cvUrl} target="_blank" className="w-full">
+                      <MagneticButton strength={30} radius={150} className="w-full">
+                        <Button variant="outline" size="sm" className="w-full">
+                          Descargar CV
+                        </Button>
+                      </MagneticButton>
+                    </Link>
+                  </CardFooter>
+                </Card>
 
-              <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
-                <CardHeader className="pb-2">
-                  <CardTitle className="flex items-center gap-2">
-                    <Linkedin className="h-5 w-5 text-primary" />
-                    LinkedIn
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Juan Pablo Gallo</p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
-                    <MagneticButton strength={30} radius={150}>
-                      <Button variant="outline" size="sm">
-                        Conectar
-                      </Button>
-                    </MagneticButton>
-                  </Link>
-                </CardFooter>
-              </Card>
+                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
+                      <Github className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
+                      GitHub
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm sm:text-base">POHMONSEY22</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link href="https://github.com/POHMONSEY22" target="_blank" className="w-full">
+                      <MagneticButton strength={30} radius={150} className="w-full">
+                        <Button variant="outline" size="sm" className="w-full">
+                          Ver perfil
+                        </Button>
+                      </MagneticButton>
+                    </Link>
+                  </CardFooter>
+                </Card>
+
+                <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
+                      <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
+                      LinkedIn
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm sm:text-base">Juan Pablo Gallo</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Link
+                      href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/"
+                      target="_blank"
+                      className="w-full"
+                    >
+                      <MagneticButton strength={30} radius={150} className="w-full">
+                        <Button variant="outline" size="sm" className="w-full">
+                          Conectar
+                        </Button>
+                      </MagneticButton>
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </div>
             </EnhancedCardGrid>
 
-            <EnhancedSection animationType="scale" delay={0.8}>
+            <EnhancedSection animationType="scale" delay={0.8} className="md:col-span-1 lg:col-span-1">
               <ContactForm />
             </EnhancedSection>
           </div>
@@ -403,30 +480,30 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto py-8 px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-center md:text-left">
-              <p className="text-sm text-muted-foreground">
+        <div className="container mx-auto py-6 sm:py-8 md:py-10 px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row md:flex-row justify-between items-center gap-4 md:gap-6">
+            <div className="text-center sm:text-left">
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
                 © {new Date().getFullYear()} Juan Pablo Gallo Arboleda. Todos los derechos reservados.
               </p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-2 sm:gap-3 md:gap-4">
               <ThemeToggle />
               <Link href="https://github.com/POHMONSEY22" target="_blank">
-                <Button variant="ghost" size="icon">
-                  <Github className="h-4 w-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
+                  <Github className="h-3 w-3 sm:h-4 sm:w-4 md:h-4 md:w-4" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
               <Link href="mailto:juanarboledag610@gmail.com">
-                <Button variant="ghost" size="icon">
-                  <Mail className="h-4 w-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
+                  <Mail className="h-3 w-3 sm:h-4 sm:w-4 md:h-4 md:w-4" />
                   <span className="sr-only">Contact</span>
                 </Button>
               </Link>
               <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
-                <Button variant="ghost" size="icon">
-                  <Linkedin className="h-4 w-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
+                  <Linkedin className="h-3 w-3 sm:h-4 sm:w-4 md:h-4 md:w-4" />
                   <span className="sr-only">LinkedIn</span>
                 </Button>
               </Link>
