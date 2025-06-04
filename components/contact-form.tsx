@@ -80,7 +80,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="w-full max-w-md mx-auto bg-background/50 backdrop-blur-sm border border-primary/10">
+    <Card className="w-full h-full bg-background/50 backdrop-blur-sm border border-primary/10 flex flex-col">
       <CardHeader className="pb-4">
         <CardTitle className="text-lg sm:text-xl">Envíame un mensaje</CardTitle>
         <CardDescription className="text-sm sm:text-base">
@@ -100,8 +100,8 @@ export default function ContactForm() {
           </Link>
         </div>
       </CardHeader>
-      <form onSubmit={handleSubmit}>
-        <CardContent className="space-y-4">
+      <form onSubmit={handleSubmit} className="flex flex-col flex-grow">
+        <CardContent className="space-y-4 flex-grow">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-sm sm:text-base">
               Nombre
@@ -145,7 +145,7 @@ export default function ContactForm() {
               className="text-sm sm:text-base"
             />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 flex-grow">
             <Label htmlFor="message" className="text-sm sm:text-base">
               Mensaje
             </Label>
@@ -157,7 +157,7 @@ export default function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               required
-              className="resize-none text-sm sm:text-base"
+              className="resize-none text-sm sm:text-base flex-grow min-h-[120px]"
             />
           </div>
         </CardContent>

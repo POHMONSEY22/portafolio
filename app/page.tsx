@@ -404,14 +404,9 @@ export default function Home() {
             </div>
           </DramaticEntrance>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-7xl mx-auto">
-            <EnhancedCardGrid
-              animationType="wave"
-              delay={0.5}
-              staggerDelay={0.2}
-              className="space-y-4 sm:space-y-6 md:col-span-2 lg:col-span-1"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-7xl mx-auto">
+            <EnhancedCardGrid animationType="wave" delay={0.5} staggerDelay={0.2} className="h-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 h-full">
                 <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
                   <CardHeader className="pb-2">
                     <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
@@ -506,7 +501,7 @@ export default function Home() {
               </div>
             </EnhancedCardGrid>
 
-            <EnhancedSection animationType="scale" delay={0.8} className="md:col-span-1 lg:col-span-1">
+            <EnhancedSection animationType="scale" delay={0.8} className="h-full flex">
               <ContactForm />
             </EnhancedSection>
           </div>
