@@ -108,7 +108,7 @@ export default function Home() {
           <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl text-center md:text-left">
             <DramaticEntrance effect="curtain" delay={0.5} duration={1.5}>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                Juan Pablo Gallo Arboleda
+                <span className="text-foreground">Juan Pablo</span> <span className="text-primary">Gallo Arboleda</span>
               </h1>
             </DramaticEntrance>
 
