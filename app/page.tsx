@@ -34,7 +34,7 @@ export default function Home() {
   })
 
   // Número de WhatsApp (reemplaza con tu número real)
-  const whatsappNumber = "573113456789" // Reemplaza con tu número real incluyendo código de país
+  const whatsappNumber = "573006007960" // Reemplaza con tu número real incluyendo código de país
   const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
   // URL de tu hoja de vida (reemplaza con la URL real)
@@ -169,7 +169,7 @@ export default function Home() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto"
+                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto bg-transparent"
                     >
                       Mi proceso
                     </Button>
@@ -180,7 +180,7 @@ export default function Home() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto"
+                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto bg-transparent"
                     >
                       Contacto
                     </Button>
@@ -191,7 +191,7 @@ export default function Home() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto"
+                      className="border-primary/20 hover:border-primary/50 w-full sm:w-auto bg-transparent"
                     >
                       Hoja de Vida
                     </Button>
@@ -494,7 +494,7 @@ export default function Home() {
                   <CardFooter className="pt-4 px-6 pb-6">
                     <Link href={cvUrl} target="_blank" className="w-full">
                       <MagneticButton strength={30} radius={150} className="w-full">
-                        <Button variant="outline" size="sm" className="w-full">
+                        <Button variant="outline" size="sm" className="w-full bg-transparent">
                           Descargar CV
                         </Button>
                       </MagneticButton>
@@ -515,7 +515,7 @@ export default function Home() {
                   <CardFooter className="pt-4 px-6 pb-6">
                     <Link href="https://github.com/POHMONSEY22" target="_blank" className="w-full">
                       <MagneticButton strength={30} radius={150} className="w-full">
-                        <Button variant="outline" size="sm" className="w-full">
+                        <Button variant="outline" size="sm" className="w-full bg-transparent">
                           Ver perfil
                         </Button>
                       </MagneticButton>
@@ -540,7 +540,7 @@ export default function Home() {
                       className="w-full"
                     >
                       <MagneticButton strength={30} radius={150} className="w-full">
-                        <Button variant="outline" size="sm" className="w-full">
+                        <Button variant="outline" size="sm" className="w-full bg-transparent">
                           Conectar
                         </Button>
                       </MagneticButton>

@@ -24,7 +24,7 @@ export default function ContactForm() {
   })
 
   // Número de WhatsApp (reemplaza con tu número real)
-  const whatsappNumber = "573113456789" // Reemplaza con tu número real incluyendo código de país
+  const whatsappNumber = "573006007960" // Reemplaza con tu número real incluyendo código de país
   const whatsappUrl = `https://wa.me/${whatsappNumber}`
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
