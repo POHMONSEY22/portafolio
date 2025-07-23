@@ -70,16 +70,16 @@ export default function WorkflowSection() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="space-y-2 sm:space-y-3 md:space-y-4 text-center max-w-[95%] mx-auto px-4"
+        className="space-y-2 sm:space-y-3 md:space-y-4 text-center max-w-4xl mx-auto px-4"
       >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Mi Proceso de Trabajo</h2>
-        <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-[80%] mx-auto">
+        <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
           Un enfoque estructurado para convertir ideas en productos digitales excepcionales
         </p>
       </motion.div>
 
       <div
-        className={`space-y-4 sm:space-y-6 md:space-y-8 mt-8 sm:mt-10 md:mt-12 max-w-[95%] mx-auto ${
+        className={`space-y-4 sm:space-y-6 md:space-y-8 mt-8 sm:mt-10 md:mt-12 max-w-5xl mx-auto ${
           isTablet ? "md:space-y-6" : ""
         }`}
       >

@@ -180,21 +180,3 @@ div,
 main {
   max-width: 100%;
 }
-
-/* Asegurar que los contenedores ocupen más espacio horizontal */
-.container {
-  max-width: 95% !important;
-  width: 95% !important;
-}
-
-@media (min-width: 1400px) {
-  .container {
-    max-width: 95% !important;
-    width: 95% !important;
-  }
-}
-
-/* Ajustar el grid para ocupar más espacio */
-.grid {
-  width: 100%;
-}
