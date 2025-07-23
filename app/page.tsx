@@ -120,7 +120,7 @@ export default function Home() {
                 <span className="sr-only">WhatsApp</span>
               </Button>
             </Link>
-            <Link href={cvUrl} target="_blank">
+            <Link href="/cv">
               <Button variant="ghost" size="icon" className="h-8 w-8">
                 <FileText className="h-4 w-4" />
                 <span className="sr-only">Hoja de Vida</span>
@@ -221,7 +221,7 @@ export default function Home() {
                     </Button>
                   </MagneticButton>
                 </Link>
-                <Link href={cvUrl} target="_blank">
+                <Link href="/cv">
                   <MagneticButton strength={40} radius={200}>
                     <Button
                       variant="outline"
@@ -563,7 +563,7 @@ export default function Home() {
                     <p className="text-muted-foreground text-sm">Descarga mi CV completo</p>
                   </CardContent>
                   <CardFooter className="pt-2 px-4 pb-4">
-                    <Link href={cvUrl} target="_blank" className="w-full">
+                    <Link href="/cv" className="w-full">
                       <MagneticButton strength={30} radius={150} className="w-full">
                         <Button variant="outline" size="sm" className="w-full bg-transparent">
                           Descargar CV
@@ -649,6 +649,12 @@ export default function Home() {
                 <Button variant="ghost" size="icon" className="h-8 w-8">
                   <Mail className="h-3 w-3" />
                   <span className="sr-only">Contact</span>
+                </Button>
+              </Link>
+              <Link href="/cv">
+                <Button variant="ghost" size="icon" className="h-8 w-8">
+                  <FileText className="h-3 w-3" />
+                  <span className="sr-only">Hoja de Vida</span>
                 </Button>
               </Link>
               <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
