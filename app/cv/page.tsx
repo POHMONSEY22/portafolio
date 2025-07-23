@@ -11,8 +11,6 @@ import EnhancedSection from "@/components/enhanced-section"
 import MagneticButton from "@/components/magnetic-button"
 
 export default function CVPage() {
-  const cvUrl = "/cv.pdf"
-
   const skills = [
     "Trabajo en equipo",
     "Puntualidad",
@@ -57,14 +55,14 @@ export default function CVPage() {
             </MagneticButton>
           </Link>
 
-          <Link href={cvUrl} target="_blank">
+          <a href="/cv.pdf" download="Juan_Pablo_Gallo_Arboleda_CV.pdf">
             <MagneticButton strength={30} radius={150}>
               <Button className="flex items-center gap-2">
                 <Download className="h-4 w-4" />
-                Descargar PDF
+                Descargar Hoja de Vida
               </Button>
             </MagneticButton>
-          </Link>
+          </a>
         </div>
       </header>
 
