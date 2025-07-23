@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image" // Importar el componente Image de Next.js
 import { Github, Linkedin, Mail, ArrowDown, FileText, Phone } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -39,6 +40,24 @@ export default function Home() {
 
   // URL de tu hoja de vida (reemplaza con la URL real)
   const cvUrl = "/cv.pdf" // Asegúrate de añadir tu CV en la carpeta public
+
+  // Array de tecnologías con sus respectivos queries para los logos
+  const technologies = [
+    { name: "HTML", query: "HTML5 logo", delay: 0.3 },
+    { name: "CSS", query: "CSS3 logo", delay: 0.4 },
+    { name: "JavaScript", query: "JavaScript logo", delay: 0.5 },
+    { name: "React", query: "React logo", delay: 0.6 },
+    { name: "Next.js", query: "Next.js logo", delay: 0.7 },
+    { name: "Tailwind CSS", query: "Tailwind CSS logo", delay: 0.8 },
+    { name: "Node.js", query: "Node.js logo", delay: 0.9 },
+    { name: "Django", query: "Django logo", delay: 1.0 },
+    { name: "MongoDB", query: "MongoDB logo", delay: 1.1 },
+    { name: "Firebase", query: "Firebase logo", delay: 1.2 },
+    { name: "Git", query: "Git logo", delay: 1.3 },
+    { name: "GitHub", query: "GitHub logo", delay: 1.4 },
+    { name: "VS Code", query: "VS Code logo", delay: 1.5 },
+    { name: "Figma", query: "Figma logo", delay: 1.6 },
+  ]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted">
@@ -232,6 +251,29 @@ export default function Home() {
         >
           <DramaticEntrance effect="spotlight" delay={0.2}>
             <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+              {/* Iconos de tecnologías */}
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-4">
+                {technologies.map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: tech.delay }}
+                    whileHover={{ scale: 1.2, rotate: index % 2 === 0 ? 10 : -10 }}
+                    className="relative flex flex-col items-center justify-center"
+                  >
+                    <Image
+                      src={`/placeholder.svg?height=48&width=48&query=${encodeURIComponent(tech.query)}`}
+                      alt={`${tech.name} logo`}
+                      width={48}
+                      height={48}
+                      className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain"
+                    />
+                    <span className="sr-only">{tech.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+
               <EnhancedTextReveal animationType="wave" className="text-2xl sm:text-3xl md:text-4xl font-bold">
                 Tecnologías
               </EnhancedTextReveal>
