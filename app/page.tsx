@@ -2,8 +2,26 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image" // Importar el componente Image de Next.js
-import { Github, Linkedin, Mail, ArrowDown, FileText, Phone } from "lucide-react"
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ArrowDown,
+  FileText,
+  Phone,
+  Code2,
+  Palette,
+  Zap,
+  Globe,
+  Database,
+  Server,
+  GitBranch,
+  Terminal,
+  Figma,
+  Monitor,
+  Layers,
+  Settings,
+} from "lucide-react"
 import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
@@ -41,22 +59,22 @@ export default function Home() {
   // URL de tu hoja de vida (reemplaza con la URL real)
   const cvUrl = "/cv.pdf" // Asegúrate de añadir tu CV en la carpeta public
 
-  // Array de tecnologías con sus respectivos queries para los logos
+  // Array de tecnologías con iconos de Lucide React
   const technologies = [
-    { name: "HTML", query: "official HTML5 logo icon", delay: 0.3 },
-    { name: "CSS", query: "official CSS3 logo icon", delay: 0.4 },
-    { name: "JavaScript", query: "official JavaScript logo icon", delay: 0.5 },
-    { name: "React", query: "official React JS logo icon", delay: 0.6 },
-    { name: "Next.js", query: "official Next.js logo icon", delay: 0.7 },
-    { name: "Tailwind CSS", query: "official Tailwind CSS logo icon", delay: 0.8 },
-    { name: "Node.js", query: "official Node.js logo icon", delay: 0.9 },
-    { name: "Django", query: "official Django logo icon", delay: 1.0 },
-    { name: "MongoDB", query: "official MongoDB logo icon", delay: 1.1 },
-    { name: "Firebase", query: "official Firebase logo icon", delay: 1.2 },
-    { name: "Git", query: "official Git logo icon", delay: 1.3 },
-    { name: "GitHub", query: "official GitHub logo icon", delay: 1.4 },
-    { name: "VS Code", query: "official VS Code logo icon", delay: 1.5 },
-    { name: "Figma", query: "official Figma logo icon", delay: 1.6 },
+    { name: "HTML", icon: Code2, color: "text-orange-500" },
+    { name: "CSS", icon: Palette, color: "text-blue-500" },
+    { name: "JavaScript", icon: Zap, color: "text-yellow-500" },
+    { name: "React", icon: Globe, color: "text-cyan-500" },
+    { name: "Next.js", icon: Monitor, color: "text-gray-800 dark:text-white" },
+    { name: "Tailwind", icon: Layers, color: "text-teal-500" },
+    { name: "Node.js", icon: Server, color: "text-green-600" },
+    { name: "Django", icon: Database, color: "text-green-700" },
+    { name: "MongoDB", icon: Database, color: "text-green-500" },
+    { name: "Firebase", icon: Zap, color: "text-orange-600" },
+    { name: "Git", icon: GitBranch, color: "text-red-500" },
+    { name: "GitHub", icon: Github, color: "text-gray-800 dark:text-white" },
+    { name: "VS Code", icon: Terminal, color: "text-blue-600" },
+    { name: "Figma", icon: Figma, color: "text-purple-500" },
   ]
 
   return (
@@ -244,36 +262,54 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" className="space-y-8 sm:space-y-10 md:space-y-12">
-          <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+          <div className="text-center space-y-6">
             {/* Iconos de tecnologías */}
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-6">
-              {technologies.map((tech, index) => (
-                <div
-                  key={tech.name}
-                  className="relative flex flex-col items-center justify-center hover:scale-110 transition-transform duration-300"
-                >
-                  <Image
-                    src={`/placeholder.svg?height=48&width=48&query=${encodeURIComponent(tech.query)}`}
-                    alt={`${tech.name} logo`}
-                    width={48}
-                    height={48}
-                    className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain"
-                  />
-                  <span className="text-xs mt-1 text-muted-foreground">{tech.name}</span>
-                </div>
-              ))}
+            <div className="bg-background/50 backdrop-blur-sm border border-primary/10 rounded-lg p-6 sm:p-8">
+              <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10">
+                {technologies.map((tech, index) => {
+                  const IconComponent = tech.icon
+                  return (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: index % 2 === 0 ? 10 : -10,
+                        transition: { duration: 0.2 },
+                      }}
+                      className="flex flex-col items-center justify-center group cursor-pointer"
+                    >
+                      <div className="p-3 rounded-full bg-background/80 border border-primary/20 group-hover:border-primary/50 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                        <IconComponent
+                          className={`h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 ${tech.color} transition-all duration-300`}
+                        />
+                      </div>
+                      <span className="text-xs sm:text-sm mt-2 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                        {tech.name}
+                      </span>
+                    </motion.div>
+                  )
+                })}
+              </div>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Tecnologías</h2>
-            <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
-              Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
-            </p>
+            <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Tecnologías</h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+                Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg md:text-xl">Frontend</CardTitle>
+                <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
+                  <Code2 className="h-5 w-5 text-orange-500" />
+                  Frontend
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -289,7 +325,10 @@ export default function Home() {
 
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg md:text-xl">Backend</CardTitle>
+                <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
+                  <Server className="h-5 w-5 text-green-600" />
+                  Backend
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -303,7 +342,10 @@ export default function Home() {
 
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg md:text-xl">Herramientas</CardTitle>
+                <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
+                  <Settings className="h-5 w-5 text-gray-600" />
+                  Herramientas
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -317,7 +359,10 @@ export default function Home() {
 
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg md:text-xl">Otros</CardTitle>
+                <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
+                  <Palette className="h-5 w-5 text-purple-500" />
+                  Otros
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
