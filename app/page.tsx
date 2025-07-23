@@ -86,7 +86,7 @@ export default function Home() {
       <ParticlesControls onSettingsChange={setParticlesSettings} defaultSettings={particlesSettings} />
 
       {/* Header */}
-      <header className="container mx-auto py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+      <header className="container mx-auto py-3 sm:py-4 px-4 sm:px-6 lg:px-8">
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,30 +105,30 @@ export default function Home() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex gap-2 sm:gap-3 md:gap-4 items-center"
+            className="flex gap-2 sm:gap-3 items-center"
           >
             <ThemeToggle />
             <Link href="https://github.com/POHMONSEY22" target="_blank">
-              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
-                <Github className="h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
+                <Github className="h-4 w-4 sm:h-4 sm:w-4" />
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
             <Link href={whatsappUrl} target="_blank">
-              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
-                <Phone className="h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
+                <Phone className="h-4 w-4 sm:h-4 sm:w-4" />
                 <span className="sr-only">WhatsApp</span>
               </Button>
             </Link>
             <Link href={cvUrl} target="_blank">
-              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
-                <FileText className="h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
+                <FileText className="h-4 w-4 sm:h-4 sm:w-4" />
                 <span className="sr-only">Hoja de Vida</span>
               </Button>
             </Link>
             <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
-              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
-                <Linkedin className="h-4 w-4 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+              <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
+                <Linkedin className="h-4 w-4 sm:h-4 sm:w-4" />
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
@@ -136,14 +136,14 @@ export default function Home() {
         </motion.nav>
       </header>
 
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-12 space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-28">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-12 sm:space-y-16">
         {/* Hero Section */}
         <EnhancedSection
           animationType="fade"
           duration={1}
-          className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 py-6 sm:py-8 md:py-12"
+          className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 sm:gap-8 py-4 sm:py-6"
         >
-          <div className="space-y-4 sm:space-y-6 md:space-y-8 max-w-2xl text-center md:text-left">
+          <div className="space-y-4 sm:space-y-6 max-w-2xl text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -252,20 +252,20 @@ export default function Home() {
             repeat: Number.POSITIVE_INFINITY,
             repeatType: "reverse",
           }}
-          className="flex justify-center -mt-6 sm:-mt-8 md:-mt-10"
+          className="flex justify-center -mt-4"
         >
-          <ArrowDown className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary/70" />
+          <ArrowDown className="h-6 w-6 sm:h-7 sm:w-7 text-primary/70" />
         </motion.div>
 
         {/* Skills Section */}
-        <section id="skills" className="space-y-8 sm:space-y-10 md:space-y-12">
-          <div className="text-center space-y-6">
+        <section id="skills" className="space-y-6 sm:space-y-8">
+          <div className="text-center space-y-4">
             {/* Iconos de tecnologías */}
-            <div className="relative bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 sm:p-10 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-primary/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
               {/* Efecto de brillo de fondo */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-2xl"></div>
 
-              <div className="relative grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6 sm:gap-8 md:gap-10">
+              <div className="relative grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 sm:gap-6">
                 {technologies.map((tech, index) => {
                   const IconComponent = tech.icon
                   return (
@@ -287,15 +287,15 @@ export default function Home() {
                       }}
                       className="flex flex-col items-center justify-center group cursor-pointer"
                     >
-                      <div className="relative p-4 rounded-2xl bg-background/90 border border-primary/20 group-hover:border-primary/50 transition-all duration-300 shadow-lg group-hover:shadow-2xl group-hover:shadow-primary/20">
+                      <div className="relative p-3 sm:p-4 rounded-xl bg-background/90 border border-primary/20 group-hover:border-primary/50 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-primary/20">
                         {/* Efecto de brillo en hover */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                         <IconComponent
-                          className={`relative h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 ${tech.color} transition-all duration-300 group-hover:drop-shadow-lg`}
+                          className={`relative h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 ${tech.color} transition-all duration-300 group-hover:drop-shadow-lg`}
                         />
                       </div>
-                      <span className="text-xs sm:text-sm mt-3 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                      <span className="text-xs mt-2 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center">
                         {tech.name}
                       </span>
                     </motion.div>
@@ -304,18 +304,18 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Tecnologías</h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base leading-relaxed px-4">
                 Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
+                <CardTitle className="text-base sm:text-lg flex items-center gap-2">
                   <Code2 className="h-5 w-5 text-orange-500" />
                   Frontend
                 </CardTitle>
@@ -332,9 +332,9 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
+                <CardTitle className="text-base sm:text-lg flex items-center gap-2">
                   <Server className="h-5 w-5 text-green-600" />
                   Backend
                 </CardTitle>
@@ -349,9 +349,9 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
+                <CardTitle className="text-base sm:text-lg flex items-center gap-2">
                   <Settings className="h-5 w-5 text-gray-600" />
                   Herramientas
                 </CardTitle>
@@ -366,9 +366,9 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
+                <CardTitle className="text-base sm:text-lg flex items-center gap-2">
                   <Palette className="h-5 w-5 text-purple-500" />
                   Otros
                 </CardTitle>
@@ -386,18 +386,13 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <EnhancedSection
-          id="projects"
-          animationType="slide"
-          direction="up"
-          className="space-y-8 sm:space-y-10 md:space-y-12"
-        >
+        <EnhancedSection id="projects" animationType="slide" direction="up" className="space-y-6 sm:space-y-8">
           <DramaticEntrance effect="fold" delay={0.2}>
-            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+            <div className="text-center space-y-3 sm:space-y-4">
               <EnhancedTextReveal animationType="glitch" className="text-2xl sm:text-3xl md:text-4xl font-bold">
                 Proyectos
               </EnhancedTextReveal>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base leading-relaxed px-4">
                 Una selección de mis proyectos más recientes con sus respectivos enlaces.
               </p>
             </div>
@@ -408,7 +403,7 @@ export default function Home() {
             delay={0.5}
             staggerDelay={0.2}
             columns={3}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto"
           >
             <ProjectCard
               title="717 Streetwear"
@@ -506,7 +501,7 @@ export default function Home() {
         </EnhancedSection>
 
         {/* Workflow Section */}
-        <EnhancedSection id="workflow" animationType="wave" className="space-y-8 sm:space-y-10 md:space-y-12">
+        <EnhancedSection id="workflow" animationType="wave" className="space-y-6 sm:space-y-8">
           <DramaticEntrance effect="shatter" delay={0.3}>
             <WorkflowSection />
           </DramaticEntrance>
@@ -517,26 +512,26 @@ export default function Home() {
           id="contact"
           animationType="slide"
           direction="up"
-          className="space-y-8 sm:space-y-10 md:space-y-12 pb-16 sm:pb-20 md:pb-24"
+          className="space-y-6 sm:space-y-8 pb-12 sm:pb-16"
         >
           <DramaticEntrance effect="curtain" delay={0.2}>
-            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+            <div className="text-center space-y-3 sm:space-y-4">
               <EnhancedTextReveal animationType="typewriter" className="text-2xl sm:text-3xl md:text-4xl font-bold">
                 Contacto
               </EnhancedTextReveal>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base leading-relaxed px-4">
                 ¿Interesado en trabajar juntos? Contáctame a través de cualquiera de estos medios.
               </p>
             </div>
           </DramaticEntrance>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
             <EnhancedCardGrid animationType="wave" delay={0.5} staggerDelay={0.2} className="h-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 h-full">
                 <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
                   <CardHeader className="pb-3 px-6 pt-6">
-                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
-                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       WhatsApp
                     </CardTitle>
                   </CardHeader>
@@ -560,8 +555,8 @@ export default function Home() {
 
                 <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
                   <CardHeader className="pb-3 px-6 pt-6">
-                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
-                      <FileText className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+                      <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       Hoja de Vida
                     </CardTitle>
                   </CardHeader>
@@ -581,8 +576,8 @@ export default function Home() {
 
                 <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
                   <CardHeader className="pb-3 px-6 pt-6">
-                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
-                      <Github className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+                      <Github className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       GitHub
                     </CardTitle>
                   </CardHeader>
@@ -602,8 +597,8 @@ export default function Home() {
 
                 <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
                   <CardHeader className="pb-3 px-6 pt-6">
-                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg md:text-xl">
-                      <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary" />
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+                      <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       LinkedIn
                     </CardTitle>
                   </CardHeader>
@@ -636,30 +631,30 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto py-6 sm:py-8 md:py-10 px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row md:flex-row justify-between items-center gap-4 md:gap-6">
+        <div className="container mx-auto py-6 sm:py-8 px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-center sm:text-left">
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 © {new Date().getFullYear()} Juan Pablo Gallo Arboleda. Todos los derechos reservados.
               </p>
             </div>
-            <div className="flex gap-2 sm:gap-3 md:gap-4">
+            <div className="flex gap-2 sm:gap-3">
               <ThemeToggle />
               <Link href="https://github.com/POHMONSEY22" target="_blank">
-                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
-                  <Github className="h-3 w-3 sm:h-4 sm:w-4 md:h-4 md:w-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
+                  <Github className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
               <Link href="mailto:juanarboledag610@gmail.com">
-                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
-                  <Mail className="h-3 w-3 sm:h-4 sm:w-4 md:h-4 md:w-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
+                  <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span className="sr-only">Contact</span>
                 </Button>
               </Link>
               <Link href="https://www.linkedin.com/in/juan-pablo-gallo-93999328a/" target="_blank">
-                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10">
-                  <Linkedin className="h-3 w-3 sm:h-4 sm:w-4 md:h-4 md:w-4" />
+                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9">
+                  <Linkedin className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span className="sr-only">LinkedIn</span>
                 </Button>
               </Link>
