@@ -261,11 +261,11 @@ export default function Home() {
         <section id="skills" className="space-y-8 sm:space-y-10 md:space-y-12">
           <div className="text-center space-y-6">
             {/* Iconos de tecnologías */}
-            <div className="relative bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 sm:p-10 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-primary/10 rounded-2xl p-6 sm:p-8 shadow-2xl overflow-hidden">
               {/* Efecto de brillo de fondo */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-2xl"></div>
 
-              <div className="relative grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6 sm:gap-8 md:gap-10">
+              <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 sm:gap-6 md:gap-8 justify-items-center max-w-full">
                 {technologies.map((tech, index) => {
                   const IconComponent = tech.icon
                   return (
@@ -280,22 +280,22 @@ export default function Home() {
                         stiffness: 100,
                       }}
                       whileHover={{
-                        scale: 1.2,
-                        rotate: index % 2 === 0 ? 12 : -12,
-                        y: -8,
+                        scale: 1.1,
+                        rotate: index % 2 === 0 ? 8 : -8,
+                        y: -4,
                         transition: { duration: 0.3, type: "spring", stiffness: 300 },
                       }}
-                      className="flex flex-col items-center justify-center group cursor-pointer"
+                      className="flex flex-col items-center justify-center group cursor-pointer w-full max-w-[80px]"
                     >
-                      <div className="relative p-4 rounded-2xl bg-background/90 border border-primary/20 group-hover:border-primary/50 transition-all duration-300 shadow-lg group-hover:shadow-2xl group-hover:shadow-primary/20">
+                      <div className="relative p-3 sm:p-4 rounded-xl bg-background/90 border border-primary/20 group-hover:border-primary/50 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-primary/20 w-full aspect-square flex items-center justify-center">
                         {/* Efecto de brillo en hover */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                         <IconComponent
-                          className={`relative h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 ${tech.color} transition-all duration-300 group-hover:drop-shadow-lg`}
+                          className={`relative h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 ${tech.color} transition-all duration-300 group-hover:drop-shadow-lg flex-shrink-0`}
                         />
                       </div>
-                      <span className="text-xs sm:text-sm mt-3 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                      <span className="text-xs sm:text-sm mt-2 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center truncate w-full">
                         {tech.name}
                       </span>
                     </motion.div>
@@ -312,8 +312,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
                   <Code2 className="h-5 w-5 text-orange-500" />
@@ -332,7 +332,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
                   <Server className="h-5 w-5 text-green-600" />
@@ -349,7 +349,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
                   <Settings className="h-5 w-5 text-gray-600" />
@@ -366,7 +366,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
                   <Palette className="h-5 w-5 text-purple-500" />
