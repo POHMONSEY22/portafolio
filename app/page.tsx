@@ -243,53 +243,34 @@ export default function Home() {
         </motion.div>
 
         {/* Skills Section */}
-        <EnhancedSection
-          id="skills"
-          animationType="slide"
-          direction="up"
-          className="space-y-8 sm:space-y-10 md:space-y-12"
-        >
-          <DramaticEntrance effect="spotlight" delay={0.2}>
-            <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
-              {/* Iconos de tecnologías */}
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-4">
-                {technologies.map((tech, index) => (
-                  <motion.div
-                    key={tech.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: tech.delay }}
-                    whileHover={{ scale: 1.2, rotate: index % 2 === 0 ? 10 : -10 }}
-                    className="relative flex flex-col items-center justify-center"
-                  >
-                    <Image
-                      src={`/placeholder.svg?height=48&width=48&query=${encodeURIComponent(tech.query)}`}
-                      alt={`${tech.name} logo`}
-                      width={48}
-                      height={48}
-                      className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain"
-                    />
-                    <span className="sr-only">{tech.name}</span>
-                  </motion.div>
-                ))}
-              </div>
-
-              <EnhancedTextReveal animationType="wave" className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                Tecnologías
-              </EnhancedTextReveal>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
-                Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
-              </p>
+        <section id="skills" className="space-y-8 sm:space-y-10 md:space-y-12">
+          <div className="text-center space-y-3 sm:space-y-4 md:space-y-6">
+            {/* Iconos de tecnologías */}
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-6">
+              {technologies.map((tech, index) => (
+                <div
+                  key={tech.name}
+                  className="relative flex flex-col items-center justify-center hover:scale-110 transition-transform duration-300"
+                >
+                  <Image
+                    src={`/placeholder.svg?height=48&width=48&query=${encodeURIComponent(tech.query)}`}
+                    alt={`${tech.name} logo`}
+                    width={48}
+                    height={48}
+                    className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain"
+                  />
+                  <span className="text-xs mt-1 text-muted-foreground">{tech.name}</span>
+                </div>
+              ))}
             </div>
-          </DramaticEntrance>
 
-          <EnhancedCardGrid
-            animationType="spiral"
-            delay={0.5}
-            staggerDelay={0.15}
-            columns={2}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto"
-          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Tecnologías</h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+              Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl">Frontend</CardTitle>
@@ -347,8 +328,8 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-          </EnhancedCardGrid>
-        </EnhancedSection>
+          </div>
+        </section>
 
         {/* Projects Section */}
         <EnhancedSection
