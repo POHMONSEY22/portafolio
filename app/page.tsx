@@ -2,26 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ArrowDown,
-  FileText,
-  Phone,
-  Code2,
-  Palette,
-  Zap,
-  Globe,
-  Database,
-  Server,
-  GitBranch,
-  Terminal,
-  Figma,
-  Monitor,
-  Layers,
-  Settings,
-} from "lucide-react"
+import { Github, Linkedin, Mail, ArrowDown, FileText, Phone, Code2, Server, Settings, Palette } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
@@ -43,6 +24,22 @@ import EnhancedTextReveal from "@/components/enhanced-text-reveal"
 import EnhancedCardGrid from "@/components/enhanced-card-grid"
 import DramaticEntrance from "@/components/dramatic-entrance"
 import AnalyticsWidget from "@/components/analytics-widget"
+import {
+  HTMLIcon,
+  CSSIcon,
+  JavaScriptIcon,
+  ReactIcon,
+  NextJSIcon,
+  TailwindIcon,
+  NodeJSIcon,
+  DjangoIcon,
+  MongoDBIcon,
+  FirebaseIcon,
+  GitIcon,
+  GitHubIcon,
+  VSCodeIcon,
+  FigmaIcon,
+} from "@/components/tech-icons"
 
 export default function Home() {
   const [particlesSettings, setParticlesSettings] = useState({
@@ -59,22 +56,22 @@ export default function Home() {
   // URL de tu hoja de vida (reemplaza con la URL real)
   const cvUrl = "/cv.pdf" // Asegúrate de añadir tu CV en la carpeta public
 
-  // Array de tecnologías con iconos de Lucide React
+  // Array de tecnologías con iconos SVG personalizados
   const technologies = [
-    { name: "HTML", icon: Code2, color: "text-orange-500" },
-    { name: "CSS", icon: Palette, color: "text-blue-500" },
-    { name: "JavaScript", icon: Zap, color: "text-yellow-500" },
-    { name: "React", icon: Globe, color: "text-cyan-500" },
-    { name: "Next.js", icon: Monitor, color: "text-gray-800 dark:text-white" },
-    { name: "Tailwind", icon: Layers, color: "text-teal-500" },
-    { name: "Node.js", icon: Server, color: "text-green-600" },
-    { name: "Django", icon: Database, color: "text-green-700" },
-    { name: "MongoDB", icon: Database, color: "text-green-500" },
-    { name: "Firebase", icon: Zap, color: "text-orange-600" },
-    { name: "Git", icon: GitBranch, color: "text-red-500" },
-    { name: "GitHub", icon: Github, color: "text-gray-800 dark:text-white" },
-    { name: "VS Code", icon: Terminal, color: "text-blue-600" },
-    { name: "Figma", icon: Figma, color: "text-purple-500" },
+    { name: "HTML", icon: HTMLIcon, color: "text-orange-500" },
+    { name: "CSS", icon: CSSIcon, color: "text-blue-500" },
+    { name: "JavaScript", icon: JavaScriptIcon, color: "text-yellow-500" },
+    { name: "React", icon: ReactIcon, color: "text-cyan-400" },
+    { name: "Next.js", icon: NextJSIcon, color: "text-gray-800 dark:text-white" },
+    { name: "Tailwind", icon: TailwindIcon, color: "text-teal-400" },
+    { name: "Node.js", icon: NodeJSIcon, color: "text-green-600" },
+    { name: "Django", icon: DjangoIcon, color: "text-green-700" },
+    { name: "MongoDB", icon: MongoDBIcon, color: "text-green-500" },
+    { name: "Firebase", icon: FirebaseIcon, color: "text-orange-600" },
+    { name: "Git", icon: GitIcon, color: "text-red-500" },
+    { name: "GitHub", icon: GitHubIcon, color: "text-gray-800 dark:text-white" },
+    { name: "VS Code", icon: VSCodeIcon, color: "text-blue-600" },
+    { name: "Figma", icon: FigmaIcon, color: "text-purple-500" },
   ]
 
   return (
@@ -264,29 +261,41 @@ export default function Home() {
         <section id="skills" className="space-y-8 sm:space-y-10 md:space-y-12">
           <div className="text-center space-y-6">
             {/* Iconos de tecnologías */}
-            <div className="bg-background/50 backdrop-blur-sm border border-primary/10 rounded-lg p-6 sm:p-8">
-              <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-10">
+            <div className="relative bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-primary/10 rounded-2xl p-8 sm:p-10 shadow-2xl">
+              {/* Efecto de brillo de fondo */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-2xl"></div>
+
+              <div className="relative grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6 sm:gap-8 md:gap-10">
                 {technologies.map((tech, index) => {
                   const IconComponent = tech.icon
                   return (
                     <motion.div
                       key={tech.name}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{
+                        duration: 0.6,
+                        delay: index * 0.1,
+                        type: "spring",
+                        stiffness: 100,
+                      }}
                       whileHover={{
                         scale: 1.2,
-                        rotate: index % 2 === 0 ? 10 : -10,
-                        transition: { duration: 0.2 },
+                        rotate: index % 2 === 0 ? 12 : -12,
+                        y: -8,
+                        transition: { duration: 0.3, type: "spring", stiffness: 300 },
                       }}
                       className="flex flex-col items-center justify-center group cursor-pointer"
                     >
-                      <div className="p-3 rounded-full bg-background/80 border border-primary/20 group-hover:border-primary/50 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                      <div className="relative p-4 rounded-2xl bg-background/90 border border-primary/20 group-hover:border-primary/50 transition-all duration-300 shadow-lg group-hover:shadow-2xl group-hover:shadow-primary/20">
+                        {/* Efecto de brillo en hover */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
                         <IconComponent
-                          className={`h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 ${tech.color} transition-all duration-300`}
+                          className={`relative h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 ${tech.color} transition-all duration-300 group-hover:drop-shadow-lg`}
                         />
                       </div>
-                      <span className="text-xs sm:text-sm mt-2 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                      <span className="text-xs sm:text-sm mt-3 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                         {tech.name}
                       </span>
                     </motion.div>
@@ -304,7 +313,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
                   <Code2 className="h-5 w-5 text-orange-500" />
@@ -323,7 +332,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
                   <Server className="h-5 w-5 text-green-600" />
@@ -340,7 +349,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
                   <Settings className="h-5 w-5 text-gray-600" />
@@ -357,7 +366,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1">
+            <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 md:col-span-1 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base sm:text-lg md:text-xl flex items-center gap-2">
                   <Palette className="h-5 w-5 text-purple-500" />
