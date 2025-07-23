@@ -33,18 +33,18 @@ export default function DramaticEntrance({
     switch (effect) {
       case "curtain":
         return {
-          hidden: { clipPath: "inset(0 100% 0 0)" },
-          visible: { clipPath: "inset(0 0% 0 0)" },
+          hidden: { clipPath: "inset(0 100% 0 0)", opacity: 0.01 }, // Añadido opacity
+          visible: { clipPath: "inset(0 0% 0 0)", opacity: 1 },
         }
       case "spotlight":
         return {
-          hidden: { clipPath: "circle(0% at 50% 50%)", opacity: 0 },
+          hidden: { clipPath: "circle(0% at 50% 50%)", opacity: 0.01 }, // Cambiado opacity
           visible: { clipPath: "circle(100% at 50% 50%)", opacity: 1 },
         }
       case "shatter":
         return {
           hidden: {
-            opacity: 0,
+            opacity: 0.01, // Cambiado opacity
             scale: 0.8,
             filter: "blur(10px)",
             transform: "perspective(1000px) rotateX(-45deg)",
@@ -59,7 +59,7 @@ export default function DramaticEntrance({
       case "fold":
         return {
           hidden: {
-            opacity: 0,
+            opacity: 0.01, // Cambiado opacity
             scaleY: 0,
             transformOrigin: "top",
             rotateX: -90,
@@ -74,7 +74,7 @@ export default function DramaticEntrance({
       case "portal":
         return {
           hidden: {
-            opacity: 0,
+            opacity: 0.01, // Cambiado opacity
             scale: 0,
             rotate: 180,
             filter: "blur(20px) hue-rotate(180deg)",
@@ -88,7 +88,7 @@ export default function DramaticEntrance({
         }
       default:
         return {
-          hidden: { opacity: 0 },
+          hidden: { opacity: 0.01 }, // Cambiado opacity
           visible: { opacity: 1 },
         }
     }

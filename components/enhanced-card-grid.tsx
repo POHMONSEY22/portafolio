@@ -54,32 +54,32 @@ export default function EnhancedCardGrid({
     switch (animationType) {
       case "cascade":
         return {
-          hidden: { opacity: 0, y: 60, scale: 0.8 },
+          hidden: { opacity: 0.01, y: 60, scale: 0.8 }, // Cambiado opacity
           visible: { opacity: 1, y: 0, scale: 1 },
         }
       case "spiral":
         return {
-          hidden: { opacity: 0, rotate: -180, scale: 0.5 },
+          hidden: { opacity: 0.01, rotate: -180, scale: 0.5 }, // Cambiado opacity
           visible: { opacity: 1, rotate: 0, scale: 1 },
         }
       case "wave":
         return {
-          hidden: { opacity: 0, y: 40, rotateX: -45 },
+          hidden: { opacity: 0.01, y: 40, rotateX: -45 }, // Cambiado opacity
           visible: { opacity: 1, y: 0, rotateX: 0 },
         }
       case "random":
         return {
-          hidden: { opacity: 0, x: Math.random() * 100 - 50, y: Math.random() * 100 - 50, scale: 0.5 },
+          hidden: { opacity: 0.01, x: Math.random() * 100 - 50, y: Math.random() * 100 - 50, scale: 0.5 }, // Cambiado opacity
           visible: { opacity: 1, x: 0, y: 0, scale: 1 },
         }
       case "zoom":
         return {
-          hidden: { opacity: 0, scale: 0 },
+          hidden: { opacity: 0.01, scale: 0 }, // Cambiado opacity
           visible: { opacity: 1, scale: 1 },
         }
       default:
         return {
-          hidden: { opacity: 0, y: 20 },
+          hidden: { opacity: 0.01, y: 20 }, // Cambiado opacity
           visible: { opacity: 1, y: 0 },
         }
     }
