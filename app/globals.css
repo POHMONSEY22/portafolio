@@ -139,19 +139,44 @@ button.no-underline::after,
   display: none;
 }
 
-/* Prevenir scroll horizontal */
-html,
+/* Prevenir scroll horizontal manteniendo responsividad */
+html {
+  overflow-x: hidden;
+}
+
 body {
   overflow-x: hidden;
   max-width: 100vw;
+}
+
+/* Asegurar que los contenedores no causen overflow */
+.container {
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* Asegurar que ningún elemento cause overflow */
-.container {
+/* Prevenir que elementos específicos causen scroll horizontal */
+section,
+div,
+main {
   max-width: 100%;
-  overflow-x: hidden;
 }
