@@ -117,7 +117,7 @@ export default function Home() {
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                 <motion.span
-                  className="text-white inline-block cursor-pointer"
+                  className="text-foreground inline-block cursor-pointer"
                   whileHover={{
                     scale: 1.05,
                     textShadow: "0px 0px 8px rgba(255,255,255,0.8)",
