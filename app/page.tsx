@@ -86,7 +86,7 @@ export default function Home() {
       <ParticlesControls onSettingsChange={setParticlesSettings} defaultSettings={particlesSettings} />
 
       {/* Header */}
-      <header className="container mx-auto py-2 px-4 sm:px-6 lg:px-8">
+      <header className="w-full max-w-[95%] mx-auto px-2 py-2">
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -136,14 +136,14 @@ export default function Home() {
         </motion.nav>
       </header>
 
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 space-y-8">
+      <main className="w-full max-w-[95%] mx-auto px-2 py-2 space-y-8">
         {/* Hero Section */}
         <EnhancedSection
           animationType="fade"
           duration={1}
           className="flex flex-col-reverse md:flex-row items-center justify-between gap-4 py-2"
         >
-          <div className="space-y-3 max-w-2xl text-center md:text-left">
+          <div className="space-y-3 max-w-[45%] text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -306,13 +306,13 @@ export default function Home() {
 
             <div className="space-y-2">
               <h2 className="text-2xl sm:text-3xl font-bold">Tecnologías</h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-sm leading-relaxed px-4">
+              <p className="text-muted-foreground max-w-[80%] mx-auto text-sm leading-relaxed px-4">
                 Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-[95%] mx-auto">
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base flex items-center gap-2">
@@ -392,7 +392,7 @@ export default function Home() {
               <EnhancedTextReveal animationType="glitch" className="text-2xl sm:text-3xl font-bold">
                 Proyectos
               </EnhancedTextReveal>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-sm leading-relaxed px-4">
+              <p className="text-muted-foreground max-w-[80%] mx-auto text-sm leading-relaxed px-4">
                 Una selección de mis proyectos más recientes con sus respectivos enlaces.
               </p>
             </div>
@@ -403,7 +403,7 @@ export default function Home() {
             delay={0.5}
             staggerDelay={0.2}
             columns={3}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[95%] mx-auto"
           >
             <ProjectCard
               title="717 Streetwear"
@@ -514,13 +514,13 @@ export default function Home() {
               <EnhancedTextReveal animationType="typewriter" className="text-2xl sm:text-3xl font-bold">
                 Contacto
               </EnhancedTextReveal>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-sm leading-relaxed px-4">
+              <p className="text-muted-foreground max-w-[80%] mx-auto text-sm leading-relaxed px-4">
                 ¿Interesado en trabajar juntos? Contáctame a través de cualquiera de estos medios.
               </p>
             </div>
           </DramaticEntrance>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[95%] mx-auto">
             <EnhancedCardGrid animationType="wave" delay={0.5} staggerDelay={0.2} className="h-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 h-full">
                 <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
@@ -626,7 +626,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto py-4 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[95%] mx-auto px-2 py-4">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
             <div className="text-center sm:text-left">
               <p className="text-xs text-muted-foreground">
