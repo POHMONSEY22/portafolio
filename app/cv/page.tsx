@@ -116,9 +116,9 @@ export default function CVPage() {
           </Card>
         </EnhancedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Columna Principal */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-8 max-w-4xl mx-auto lg:mx-0">
             {/* Perfil Profesional */}
             <EnhancedSection animationType="slide" direction="left" delay={0.2}>
               <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">
@@ -211,7 +211,7 @@ export default function CVPage() {
           </div>
 
           {/* Columna Lateral */}
-          <div className="space-y-8">
+          <div className="space-y-8 max-w-md mx-auto lg:mx-0">
             {/* Habilidades */}
             <EnhancedSection animationType="slide" direction="right" delay={0.3}>
               <Card className="bg-background/50 backdrop-blur-sm border border-primary/10">

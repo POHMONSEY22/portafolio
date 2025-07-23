@@ -566,7 +566,7 @@ export default function Home() {
                     <Link href="/cv" className="w-full">
                       <MagneticButton strength={30} radius={150} className="w-full">
                         <Button variant="outline" size="sm" className="w-full bg-transparent">
-                          Descargar CV
+                          Ver Hoja de Vida
                         </Button>
                       </MagneticButton>
                     </Link>
