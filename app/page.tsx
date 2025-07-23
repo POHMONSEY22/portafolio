@@ -86,12 +86,12 @@ export default function Home() {
       <ParticlesControls onSettingsChange={setParticlesSettings} defaultSettings={particlesSettings} />
 
       {/* Header */}
-      <header className="container mx-auto py-2 px-4 sm:px-6 lg:px-8">
+      <header className="container mx-auto py-4 px-4 sm:px-6 lg:px-8">
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-between items-center"
+          className="flex justify-between items-center max-w-6xl mx-auto"
         >
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -136,20 +136,20 @@ export default function Home() {
         </motion.nav>
       </header>
 
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 space-y-8">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-24">
         {/* Hero Section */}
         <EnhancedSection
           animationType="fade"
           duration={1}
-          className="flex flex-col-reverse md:flex-row items-center justify-between gap-4 py-2"
+          className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-8 max-w-6xl mx-auto"
         >
-          <div className="space-y-3 max-w-2xl text-center md:text-left">
+          <div className="space-y-6 max-w-2xl text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
                 <motion.span
                   className="text-foreground inline-block cursor-pointer"
                   whileHover={{
@@ -162,6 +162,7 @@ export default function Home() {
                 >
                   Juan Pablo
                 </motion.span>{" "}
+                <br className="hidden md:block" />
                 <motion.span
                   className="text-black inline-block cursor-pointer"
                   whileHover={{
@@ -190,10 +191,10 @@ export default function Home() {
             </EnhancedSection>
 
             <EnhancedSection animationType="scale" delay={1.5} duration={0.6} stagger staggerDelay={0.1}>
-              <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start mt-6">
                 <SmoothScrollLink href="#projects">
                   <MagneticButton strength={40} radius={200}>
-                    <Button size="default" className="bg-primary hover:bg-primary/90 text-white">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
                       Ver proyectos
                     </Button>
                   </MagneticButton>
@@ -202,7 +203,7 @@ export default function Home() {
                   <MagneticButton strength={40} radius={200}>
                     <Button
                       variant="outline"
-                      size="default"
+                      size="lg"
                       className="border-primary/20 hover:border-primary/50 bg-transparent"
                     >
                       Mi proceso
@@ -213,7 +214,7 @@ export default function Home() {
                   <MagneticButton strength={40} radius={200}>
                     <Button
                       variant="outline"
-                      size="default"
+                      size="lg"
                       className="border-primary/20 hover:border-primary/50 bg-transparent"
                     >
                       Contacto
@@ -224,7 +225,7 @@ export default function Home() {
                   <MagneticButton strength={40} radius={200}>
                     <Button
                       variant="outline"
-                      size="default"
+                      size="lg"
                       className="border-primary/20 hover:border-primary/50 bg-transparent"
                     >
                       Hoja de Vida
@@ -252,20 +253,25 @@ export default function Home() {
             repeat: Number.POSITIVE_INFINITY,
             repeatType: "reverse",
           }}
-          className="flex justify-center -mt-2"
+          className="flex justify-center -mt-16"
         >
           <ArrowDown className="h-5 w-5 text-primary/70" />
         </motion.div>
 
         {/* Skills Section */}
-        <section id="skills" className="space-y-4">
-          <div className="text-center space-y-3">
+        <section id="skills" className="space-y-12 max-w-6xl mx-auto">
+          <div className="text-center space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold">Tecnologías</h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto text-sm leading-relaxed px-4">
+              Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
+            </p>
+
             {/* Iconos de tecnologías */}
-            <div className="relative bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-primary/10 rounded-xl p-4 shadow-2xl max-w-5xl mx-auto">
+            <div className="relative bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm border border-primary/10 rounded-xl p-6 shadow-2xl max-w-5xl mx-auto">
               {/* Efecto de brillo de fondo */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-xl"></div>
 
-              <div className="relative grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 gap-3 sm:gap-4">
+              <div className="relative grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 gap-4 sm:gap-6">
                 {technologies.map((tech, index) => {
                   const IconComponent = tech.icon
                   return (
@@ -295,7 +301,7 @@ export default function Home() {
                           className={`relative h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 ${tech.color} transition-all duration-300 group-hover:drop-shadow-lg`}
                         />
                       </div>
-                      <span className="text-xs mt-1 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center">
+                      <span className="text-xs mt-2 font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-center">
                         {tech.name}
                       </span>
                     </motion.div>
@@ -303,16 +309,9 @@ export default function Home() {
                 })}
               </div>
             </div>
-
-            <div className="space-y-2">
-              <h2 className="text-2xl sm:text-3xl font-bold">Tecnologías</h2>
-              <p className="text-muted-foreground max-w-3xl mx-auto text-sm leading-relaxed px-4">
-                Estas son las tecnologías con las que trabajo para crear aplicaciones web modernas y eficientes.
-              </p>
-            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-2">
                 <CardTitle className="text-base flex items-center gap-2">
@@ -386,9 +385,9 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <EnhancedSection id="projects" animationType="slide" direction="up" className="space-y-4">
+        <EnhancedSection id="projects" animationType="slide" direction="up" className="space-y-12 max-w-7xl mx-auto">
           <DramaticEntrance effect="fold" delay={0.2}>
-            <div className="text-center space-y-2">
+            <div className="text-center space-y-6">
               <EnhancedTextReveal animationType="glitch" className="text-2xl sm:text-3xl font-bold">
                 Proyectos
               </EnhancedTextReveal>
@@ -403,7 +402,7 @@ export default function Home() {
             delay={0.5}
             staggerDelay={0.2}
             columns={3}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
           >
             <ProjectCard
               title="717 Streetwear"
@@ -501,16 +500,21 @@ export default function Home() {
         </EnhancedSection>
 
         {/* Workflow Section */}
-        <EnhancedSection id="workflow" animationType="wave" className="space-y-4">
+        <EnhancedSection id="workflow" animationType="wave" className="space-y-12 max-w-6xl mx-auto">
           <DramaticEntrance effect="shatter" delay={0.3}>
             <WorkflowSection />
           </DramaticEntrance>
         </EnhancedSection>
 
         {/* Contact Section */}
-        <EnhancedSection id="contact" animationType="slide" direction="up" className="space-y-4 pb-8">
+        <EnhancedSection
+          id="contact"
+          animationType="slide"
+          direction="up"
+          className="space-y-12 pb-16 max-w-7xl mx-auto"
+        >
           <DramaticEntrance effect="curtain" delay={0.2}>
-            <div className="text-center space-y-2">
+            <div className="text-center space-y-6">
               <EnhancedTextReveal animationType="typewriter" className="text-2xl sm:text-3xl font-bold">
                 Contacto
               </EnhancedTextReveal>
@@ -520,9 +524,9 @@ export default function Home() {
             </div>
           </DramaticEntrance>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
             <EnhancedCardGrid animationType="wave" delay={0.5} staggerDelay={0.2} className="h-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 h-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
                 <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 h-full">
                   <CardHeader className="pb-2 px-4 pt-4">
                     <CardTitle className="flex items-center gap-2 text-base">
@@ -625,9 +629,9 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto py-4 px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
+      <footer className="border-t bg-background/80 backdrop-blur-sm mt-16">
+        <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 max-w-6xl mx-auto">
             <div className="text-center sm:text-left">
               <p className="text-xs text-muted-foreground">
                 © {new Date().getFullYear()} Juan Pablo Gallo Arboleda. Todos los derechos reservados.
