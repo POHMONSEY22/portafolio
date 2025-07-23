@@ -43,20 +43,20 @@ export default function Home() {
 
   // Array de tecnologías con sus respectivos queries para los logos
   const technologies = [
-    { name: "HTML", query: "HTML5 logo", delay: 0.3 },
-    { name: "CSS", query: "CSS3 logo", delay: 0.4 },
-    { name: "JavaScript", query: "JavaScript logo", delay: 0.5 },
-    { name: "React", query: "React logo", delay: 0.6 },
-    { name: "Next.js", query: "Next.js logo", delay: 0.7 },
-    { name: "Tailwind CSS", query: "Tailwind CSS logo", delay: 0.8 },
-    { name: "Node.js", query: "Node.js logo", delay: 0.9 },
-    { name: "Django", query: "Django logo", delay: 1.0 },
-    { name: "MongoDB", query: "MongoDB logo", delay: 1.1 },
-    { name: "Firebase", query: "Firebase logo", delay: 1.2 },
-    { name: "Git", query: "Git logo", delay: 1.3 },
-    { name: "GitHub", query: "GitHub logo", delay: 1.4 },
-    { name: "VS Code", query: "VS Code logo", delay: 1.5 },
-    { name: "Figma", query: "Figma logo", delay: 1.6 },
+    { name: "HTML", query: "official HTML5 logo icon", delay: 0.3 },
+    { name: "CSS", query: "official CSS3 logo icon", delay: 0.4 },
+    { name: "JavaScript", query: "official JavaScript logo icon", delay: 0.5 },
+    { name: "React", query: "official React JS logo icon", delay: 0.6 },
+    { name: "Next.js", query: "official Next.js logo icon", delay: 0.7 },
+    { name: "Tailwind CSS", query: "official Tailwind CSS logo icon", delay: 0.8 },
+    { name: "Node.js", query: "official Node.js logo icon", delay: 0.9 },
+    { name: "Django", query: "official Django logo icon", delay: 1.0 },
+    { name: "MongoDB", query: "official MongoDB logo icon", delay: 1.1 },
+    { name: "Firebase", query: "official Firebase logo icon", delay: 1.2 },
+    { name: "Git", query: "official Git logo icon", delay: 1.3 },
+    { name: "GitHub", query: "official GitHub logo icon", delay: 1.4 },
+    { name: "VS Code", query: "official VS Code logo icon", delay: 1.5 },
+    { name: "Figma", query: "official Figma logo icon", delay: 1.6 },
   ]
 
   return (
